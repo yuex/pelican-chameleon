@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}{{ article.title|striptags }}{% endblock %}
+{% block content %}
+  <div class="page-header">
+    <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
+    {% include 'article_infos.html' %}
+  </div>
+
+  <div>
+    {{ article.content }}
+  </div>
+
+  {% if article.related_posts %}
+  <h2>Related Posts</h2>
+
+    {% set list_group = article.related_posts %}
+    {% include 'article_list_group.html' %}
+
+  {% endif %}
+
+  {% for temp in dates %}
+    {% if temp.url == article.url %}
+      {% if not loop.first %}
+        {% set prev = dates[loop.index0-1] %}
+      {% endif %}
+      {% if not loop.last %}
+        {% set next = dates[loop.index0+1] %}
+      {% endif %}
+      <hr/>
+      <ul class="pager">
+        <li class="previous{% if not prev %} disabled{% endif %}">
+        <a {% if prev %}href="{{ SITEURL }}/{{ prev.url }}"{% endif %}>
+          &larr; Newer</a>
+        </li>
+        <li class="next{% if not next %} disabled{% endif %}">
+        <a {% if next %}href="{{ SITEURL }}/{{ next.url }}"{% endif %}>
+          Older &rarr;</a>
+        </li>
+      </ul>
+    {% break %}
+    {% endif %}
+
+  {% endfor %}
+
+
+
+    {% if DISQUS_SITENAME %}
+    <h2>Comments</h2>
+    <div class="comments">
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_identifier = "{{ article.url }}";
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://{{ DISQUS_SITENAME }}.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+    </div>
+    {% endif %}
+
+{% endblock %}

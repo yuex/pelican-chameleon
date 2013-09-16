@@ -1,0 +1,19 @@
+<span>
+  <a class="label label-default" 
+    href="{{ SITEURL }}/categories.html#category{{ article.category }}-ref">
+    {{- article.category -}}
+  </a>
+  <b>|</b>
+  {% for tag in article.tags %}
+    <a class="label label-default" 
+      href="{{ SITEURL }}/tags.html#tag{{ tag }}-ref">
+      {{- tag -}}
+    </a>
+  {% endfor %}
+</span>
+
+<span class="hidden-xs pull-right">
+  {{ article.locale_date }}
+  <span class="glyphicon glyphicon-user"></span>
+  <a href="{{ AUTHOR_LINK }}">{{ article.author }}</a>
+</span>

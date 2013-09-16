@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block menuitem_active %}
+{% if link == 'categories.html' %}class="active"{% endif %}
+{% endblock %}
+
+{% block content %}
+  <div class="page-header">
+    <h1><a href="{{ SITEURL }}/categories.html">Categories</a></h1>
+  </div>
+
+{% if categories %}
+    <p>
+    {% for category, articles in categories|sort %}
+      <a class="label label-primary" 
+        href="{{ SITEURL }}/categories.html#category{{ category }}-ref">
+            {{ category }} {{ articles|count }}</a>
+    {% endfor %}
+    </p>
+
+  <div class="panel-group" id="accordion">
+    {% for category, articles in categories|sort %}
+      <div class="panel panel-default">
+        {# category heading #}
+        <a id="category{{ category }}-ref" class="accordion-toggle" data-toggle="collapse" 
+          {# data-parent="#accordion" #}
+          href="#collapsecategory{{ category }}">
+          <div class="panel-heading panel-title">
+            <span>
+              {{- category -}}
+            </span>
+            <span class="badge pull-right">
+              {{- articles|count -}}
+            </span>
+          </div>
+        </a>
+      {# end category heading #}
+
+      {# category body #}
+        <div class="panel-collapse collapse in"
+          id="collapsecategory{{ category }}">
+          <div class="panel-body-nest">
+
+            {% set list_group = articles %}
+            {% include 'article_list_group.html' %}
+
+          </div>
+        </div>
+      {# end category body #}
+
+      </div>
+    {% endfor %}
+  </div>
+
+{% endif %}
+{% endblock %}

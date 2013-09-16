@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}{{ SITENAME }} - {{ author }}{% endblock %}
+
+{% block menuitem_active %}
+{% if link == "{{ page_name}}.html" %}class="active"{% endif %}
+{% endblock %}
+
+{% block content %}
+  <div class="page-header">
+    <h1><a href="{{ SITEURL }}/author/{{ author }}.html">{{ author }}'s articles</a></h1>
+  </div>
+
+{% if dates %}
+  {% set list_group = dates %}
+  {% include 'article_list_group.html' %}
+
+{% endif %}
+
+{% endblock %}

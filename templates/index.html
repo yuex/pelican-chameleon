@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block menuitem_active %}
+{% if link == '' %}class="active"{% endif %}
+{% endblock %}
+
+{% block content %}
+  <div class="page-header">
+    <h1><a href="{{ SITEURL }}/{{ link }}">Recent Posts</a></h1>
+  </div>
+
+{% if articles %}
+
+  <div class="panel-group" id="accordion">
+    {% for article in articles %}
+      <div class="panel panel-default">
+        {# article heading #}
+          <div class="panel-heading">
+
+          {% include 'article_infos.html' with context %}
+
+          </div>
+      {# end article heading #}
+
+      <div id="index-panel-title">
+        <h4>
+          <a href="{{ SITEURL }}/{{ article.url }}">
+            {{- article.title -}}
+          </a>
+          <span class="pull-right">
+          <button type="button" class="accordion-toggle btn btn-primary btn-xs" 
+            data-toggle="collapse" data-parent="#accordion" 
+            href="#collapseArticle{{ loop.index }}">Summary</button>
+          </span>
+        </h4>
+      </div>
+
+      {# article body #}
+      <div class="panel-collapse collapse
+        {%- if loop.first %} in{% endif %}" 
+        id="collapseArticle{{ loop.index }}">
+        <div class="panel-body">
+              {{- article.summary -}}
+              <hr/>
+              <footer>
+                <span class="pull-right">
+                  <a href="{{ SITEURL }}/{{ article.url }}">
+                    Read More
+                  </a>
+                </span>
+              </footer>
+          </div>
+
+        </div>
+      {# end article body #}
+
+      </div>
+    {% endfor %}
+  </div>
+
+
+{% endif %}
+{% endblock content %}

@@ -1,0 +1,7 @@
+<div class="list-group">
+  {% for article in list_group %}
+  <a class="list-group-item" href="{{ SITEURL }}/{{ article.url }}">
+    {% include 'article_infos_short.html' with context %}
+  </a>
+  {% endfor %}
+</div>

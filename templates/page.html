@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }}{% endblock %}
+
+{% block menuitem_active %}
+{% if link == page.url %}class="active"{% endif %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="page-header">
+    <h1><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></h1>
+  </div>
+
+  <article>{{ page.content }}</article>
+
+{% endblock %}
