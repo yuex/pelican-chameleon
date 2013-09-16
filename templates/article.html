@@ -42,21 +42,9 @@
 
   {% endfor %}
 
-
-
-    {% if DISQUS_SITENAME %}
-    <h2>Comments</h2>
-    <div class="comments">
-      <div id="disqus_thread"></div>
-      <script type="text/javascript">
-        var disqus_identifier = "{{ article.url }}";
-        (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://{{ DISQUS_SITENAME }}.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-      </script>
-    </div>
-    {% endif %}
+  {% if DISQUS_SITENAME %}
+    <hr/>
+    {% include 'disqus_script.html' %}
+  {% endif %}
 
 {% endblock %}
