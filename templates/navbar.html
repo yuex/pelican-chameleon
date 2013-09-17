@@ -19,14 +19,14 @@
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul class="nav navbar-nav navbar-right">
 
-      {% for title, link in MENUITEMS %}
+      {% for title,link in MENUITEMS %}
       {% if title == 'Social' %}
         <li class="btn-group">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             {{ title }}<b class="caret"></b>
           </a>
           <ul class="dropdown-menu" role="menu">
-            {% for title,link in SOCIAL %}
+            {% for title,link in link %}
             <li><a href="{{ link }}">{{ title }}</a></li>
             {% endfor %}
           </ul>

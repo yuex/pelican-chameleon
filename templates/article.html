@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}{{ article.title|striptags }}{% endblock %}
+{% block title %}{{ article.title|striptags }}-{{ SITENAME }}{% endblock %}
 {% block content %}
   <div class="page-header">
     <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
@@ -12,10 +12,8 @@
 
   {% if article.related_posts %}
   <h2>Related Posts</h2>
-
     {% set list_group = article.related_posts %}
     {% include 'article_list_group.html' %}
-
   {% endif %}
 
   {% for temp in dates %}
