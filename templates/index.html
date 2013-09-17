@@ -30,14 +30,13 @@
           <span class="pull-right">
           <button type="button" class="accordion-toggle btn btn-primary btn-xs" 
             data-toggle="collapse" data-parent="#accordion" 
-            href="#collapseArticle{{ loop.index }}">Abstract</button>
+            href="#collapseArticle{{ loop.index }}">Close</button>
           </span>
         </h4>
       </div>
 
       {# article body #}
-      <div class="panel-collapse collapse
-        {%- if loop.first %} in{% endif %}" 
+      <div class="panel-collapse collapse in"
         id="collapseArticle{{ loop.index }}">
         <div class="panel-body">
               {{- article.summary -}}

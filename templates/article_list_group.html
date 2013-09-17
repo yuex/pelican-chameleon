@@ -1,7 +1,10 @@
 <div class="list-group">
   {% for article in list_group %}
   <a class="list-group-item" href="{{ SITEURL }}/{{ article.url }}">
-    {% include 'article_infos_short.html' with context %}
+      {{- article.title -}}
+      <span class="pull-right">
+      {{- article.locale_date -}}
+      </span>
   </a>
   {% endfor %}
 </div>
