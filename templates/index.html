@@ -10,53 +10,75 @@
   </div>
 
 {% if articles %}
-
   <div class="panel-group" id="accordion">
-    {% for article in articles %}
-      <div class="panel panel-default">
-        {# article heading #}
-          <div class="panel-heading">
+    {% for articles_group_by_year in dates|groupby('date.year')|reverse %}
+      {% set year = articles_group_by_year %}
 
-          {% include 'article_infos.html' with context %}
+            {# month list#}
+                <div class="panel-group" id="accordionYear{{ year.grouper }}">
+                {% for articles_group_by_month in year.list|groupby('date.month')|reverse %}
+                  {% set month = articles_group_by_month %}
+                  <div class="panel panel-default">
+                    <a class="accordion-toggle" data-toggle="collapse" 
+                      {#data-parent="#accordionYear{{ year.grouper }}" #}
+                      href="#collapseYear{{ year.grouper }}Month{{ month.grouper }}">
+                      <div class="panel-heading panel-title">
+                          {{ month.list[0].date|strftime('%Y-%B') }}
+                        <span class="badge pull-right">
+                          {{ month.list|count }}
+                        </span>
+                      </div>
+                    </a>
 
-          </div>
-      {# end article heading #}
+                    <div class="panel-collapse collapse in" 
+                      id="collapseYear{{ year.grouper }}Month{{ month.grouper }}">
+                      <div class="panel-body-nest">
 
-      <div id="index-panel-title">
-        <h4>
-          <a href="{{ SITEURL }}/{{ article.url }}">
-            {{- article.title -}}
-          </a>
-          <span class="pull-right">
-          <button type="button" class="accordion-toggle btn btn-default btn-xs" 
-            data-toggle="collapse" 
-            href="#collapseArticle{{ loop.index }}">Close</button>
-          </span>
-        </h4>
-      </div>
+                        <div class="panel-group">
+                          {% set list_group = month.list %}
+                          {% for article in list_group %}
+                          <div class="panel panel-default">
+                            <a id="article_title" class="panel-heading accordion-toggle" data-toggle="collapse" 
+                              {#data-parent="#accordionYear{{ year.grouper }}" #}
+                              href="#collapseYear{{ year.grouper }}Month{{ month.grouper }}Article{{ loop.index }}">
+                                  {{- article.title -}}
+                                  <span class="pull-right">
+                                  {{- article.locale_date -}}
+                                  </span>
+                            </a>
 
-      {# article body #}
-      <div class="panel-collapse collapse in"
-        id="collapseArticle{{ loop.index }}">
-        <div class="panel-body">
-              {{- article.summary -}}
-              <hr/>
-              <footer>
-                <span class="pull-right">
-                  <a href="{{ SITEURL }}/{{ article.url }}">
-                    Read More
-                  </a>
-                </span>
-              </footer>
-          </div>
+                            <div class="panel-collapse collapse" 
+                    id="collapseYear{{ year.grouper }}Month{{ month.grouper }}Article{{ loop.index }}">
+                              <div class="panel-body-nest">
+                                <ul class="list-group">
+                                  <li class="list-group-item">
+                                    {% include 'article_infos.html' %}
+                                  <a class="pull-right" href="{{ SITEURL }}/{{ article.url }}"><span class="glyphicon glyphicon-link"></span></a>
+                                  </li>
+                                  {% if article.summary %}
+                                  <li class="list-group-item">
+                                    {{- article.summary -}}
+                                  </li>
+                                  {% endif %}
+                                  <!--<a class="list-group-item" href="{{ SITEURL }}/{{ article.url }}">Link</a>-->
+                                  <a class="list-group-item pull-right" href="{{ SITEURL }}/{{ article.url }}"><span class="glyphicon glyphicon-link"></span></a>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                          {% endfor %}
+                        </div>
 
-        </div>
-      {# end article body #}
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+                </div>
+            {# end month list #}
 
-      </div>
+
     {% endfor %}
   </div>
-
 
 {% endif %}
 {% endblock content %}

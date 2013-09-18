@@ -8,16 +8,14 @@
 {% endblock %}
 
 {% block left_sidebar %}
-{% if article.toc %}
-  {{ article.toc }}
-{% endif %}
 {% endblock %}
 
 {% block right_sidebar %}
-  {% include 'article_infos.html' %}
 {% endblock %}
 
 {% block content %}
+  {% include 'article_infos.html' %}
+  <hr/>
   <div>
     {{ article.content }}
   </div>
