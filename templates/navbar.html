@@ -20,7 +20,31 @@
       <ul class="nav navbar-nav navbar-right">
 
       {% for title,link in MENUITEMS %}
-      {% if title == 'Social' %}
+      {% if link is string %}
+        {% if title == 'Search' %}
+          <li>
+            <form class="navbar-form navbar-right" role="search"
+              action="http://www.google.com/cse" 
+              id="searchbox_{{ link }}" target="_blank"> 
+              <div class="form-group">
+              <div class="input-group" style="width:200px">
+                <input type="hidden" name="cx" value="{{ link }}" /> 
+                <input type="text" name="q" class="form-control" placeholder="Search">
+                <span class="input-group-btn">
+                  <button class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+              </div>
+              </div>
+            </form>
+          </li>
+
+        {% else %}
+          <li {% block menuitem_active scoped %}{% endblock %}>
+            <a href="{{ SITEURL }}/{{ link }}">{{ title }}</a>
+          </li>
+        {% endif %}
+
+      {% elif link is iterable %}
         <li class="btn-group">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             {{ title }}<b class="caret"></b>
@@ -30,28 +54,6 @@
             <li><a href="{{ link }}">{{ title }}</a></li>
             {% endfor %}
           </ul>
-        </li>
-
-        {% elif title == 'Search' %}
-        <li>
-
-          <form class="navbar-form navbar-right" role="search"
-            action="http://www.google.com/cse" 
-            id="searchbox_{{ link }}" target="_blank"> 
-            <div class="form-group">
-            <div class="input-group" style="width:200px">
-              <input type="hidden" name="cx" value="{{ link }}" /> 
-              <input type="text" name="q" class="form-control" placeholder="Search">
-              <span class="input-group-btn">
-                <button class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
-              </span>
-            </div>
-            </div>
-          </form>
-
-          {% else %}
-        <li {% block menuitem_active scoped %}{% endblock %}>
-          <a href="{{ SITEURL }}/{{ link }}">{{ title }}</a>
         </li>
       {% endif %}
       {% endfor %}
