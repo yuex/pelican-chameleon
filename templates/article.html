@@ -1,16 +1,29 @@
 {% extends "base.html" %}
 {% block title %}{{ article.title|striptags }}-{{ SITENAME }}{% endblock %}
-{% block content %}
+
+{% block header %}
   <div class="page-header">
     <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
-    {% include 'article_infos.html' %}
   </div>
+{% endblock %}
 
+{% block left_sidebar %}
+{% if article.toc %}
+  {{ article.toc }}
+{% endif %}
+{% endblock %}
+
+{% block right_sidebar %}
+  {% include 'article_infos.html' %}
+{% endblock %}
+
+{% block content %}
   <div>
     {{ article.content }}
   </div>
 
   {% if article.related_posts %}
+  <hr/>
   <h2>Related Posts</h2>
     {% set list_group = article.related_posts %}
     {% include 'article_list_group.html' %}
