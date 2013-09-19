@@ -1,0 +1,191 @@
+{% macro article_panel_list(parent='', id='', title_left='', title_right='', entry_list=[]) %}
+
+  <div class="panel panel-default">
+    <a class="accordion-toggle" data-toggle="collapse" 
+      {#data-parent="{{ parent }}"#}
+      href="#{{ id }}">
+      <div class="panel-heading">
+          {{- title_left -}}
+        {% if title_right %}
+        <span class="badge pull-right">
+          {{- title_right -}}
+        </span>
+        {% endif %}
+      </div>
+    </a>
+
+    <ul class="list-group">
+      <div class="panel-collapse collapse in" id="{{ id }}">
+        {% for article in entry_list %}
+        <a href="/{{ article.url }}">
+          <li class="list-group-item">
+            {{- article.title -}}
+            <span class="pull-right">
+            {{- article.locale_date -}}
+            </span>
+          </li>
+        </a>
+        {% endfor %}
+      </div>
+    </ul>
+
+  </div>
+
+{% endmacro %}
+
+{% macro header(name, link) %}
+  <div class="page-header">
+    <h2><a href="{{ link }}">{{ name }}</a></h2>
+  </div>
+{% endmacro%}
+
+{% macro navbar() %}
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <ul class="nav navbar-nav navbar-left">
+          <li>
+          <a class="navbar-brand" href="/">{{ SITENAME }}</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav navbar-right">
+
+        {% for title,url in MENUITEMS %}
+          {% if url is string %}
+            {% if title == 'Search' %}
+              <li>
+                <form class="navbar-form navbar-right" role="search"
+                  action="http://www.google.com/cse" 
+                  id="searchbox_{{ url }}" target="_blank"> 
+                  <div class="form-group">
+                  <div class="input-group" style="width:200px">
+                    <input type="hidden" name="cx" value="{{ url }}" /> 
+                    <input type="text" name="q" class="form-control" placeholder="Search">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                    </span>
+                  </div>
+                  </div>
+                </form>
+              </li>
+
+            {% else %}
+            <li {% if url == link %}class="active"{% endif %}>
+                <a href="{{ url }}">{{ title }}</a>
+              </li>
+            {% endif %}
+
+          {% elif url is iterable %}
+            <li class="btn-group">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                {{ title }}<b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                {% for title,url in url %}
+                <li><a href="{{ url }}">{{ title }}</a></li>
+                {% endfor %}
+              </ul>
+            </li>
+          {% endif %}
+        {% endfor %}
+
+        </ul>
+      </div>
+    </div><!-- /.navbar-collapse -->
+  </nav>
+{% endmacro %}
+
+{% macro footer() %}
+  <nav id="footer" class="navbar navbar-default" role="complementary">
+    <div class="container">
+      <div class="text-muted">
+        <span>
+          Powered by <a href="http://docs.getpelican.com">Pelican</a>,
+          theme <a href="http://github.com/yuex/pelican-iliork">iliork</a>
+          built by <a href="http://getbootstrap.com">bootstrap</a>
+      </span>
+
+      <span class="hidden-xs pull-right">
+        Compiled by
+        <a href="{{ AUTHORS[AUTHOR] }}">{{ AUTHOR }}</a>
+        since 2013
+      </span>
+    </div>
+  </nav>
+{% endmacro %}
+
+{% macro pagination() %}
+  {% if DEFAULT_PAGINATION %}
+    <ul class="pagination">
+
+      {% if articles_page.has_previous() %}
+        <li>
+          <a href="/{{ page_name }}{{ articles_page.previous_page_number() }}.html">&laquo;</a>
+        </li>
+      {% else %}
+        <li class="disabled">
+          <a>&laquo;</a>
+        </li>
+      {% endif %}
+
+      {% for num in articles_paginator.page_range %}
+      {% if articles_page.number != num %}
+        <li>
+          <a href="/{{page_name}}{% if num != 1 %}{{ num }}{% endif %}.html">
+            {{- num }}<span class="sr-only">(current)</span></a>
+        </li>
+      {% else %}
+        <li class="active">
+          <a>{{- num }}<span class="sr-only">(current)</span></a>
+        </li>
+      {% endif %}
+      {% endfor %}
+
+      {% if articles_page.has_next() %}
+        <li>
+          <a href="/{{ page_name }}{{ articles_page.next_page_number() }}.html">&raquo;</a>
+        </li>
+      {% else %}
+        <li class="disabled">
+          <a>&raquo;</a>
+        </li>
+      {% endif %}
+
+    </ul>
+  {% endif %}
+{% endmacro %}
+
+{% macro article_info(article) %}
+  <span>
+    <a class="label label-default" 
+      href="/categories.html#{{ article.category }}">
+      {{- article.category -}}
+    </a>
+    <b>|</b>
+    {% for tag in article.tags %}
+      <a class="label label-default" 
+        href="/tags.html#{{ tag }}">
+        {{- tag -}}
+      </a>
+    {% endfor %}
+    {{ article.locale_date }}
+    <span class="glyphicon glyphicon-user"></span>
+    {% if AUTHORS[article.author] %}
+      {% set author_url = AUTHORS[article.author] %}
+    {% else %}
+      {% set author_url = ["/author/",article.author,".html"]|join %}
+    {% endif %}
+    <a href="{{ author_url }}">{{ article.author }}</a>
+  </span>
+{% endmacro %}
