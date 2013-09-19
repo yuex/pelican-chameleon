@@ -23,6 +23,9 @@
         href="#collapseArticle{{ loop.index }}">
       <div class="panel-heading">
         {{- article.date|strftime('%Y-%B') -}}
+        <span class="pull-right badge">
+          #{{ articles|count - loop.index0 }}
+        </span>
       </div>
       </a>
 

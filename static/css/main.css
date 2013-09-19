@@ -151,3 +151,7 @@ a.list-group-item {
   margin-right: -4px;
 
 }
+
+.navbar .navbar-nav > .active > a {
+  background-color: #e7e7e7;
+}

@@ -26,7 +26,72 @@
 </head>
 
 <body>
-    {% include 'navbar.html' %}
+
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <ul class="nav navbar-nav navbar-left">
+            <li>
+            <a class="navbar-brand" href="{{ SITEURL }}">{{ SITENAME }}</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav navbar-right">
+
+          {% for title,link in MENUITEMS %}
+          {% if link is string %}
+            {% if title == 'Search' %}
+              <li>
+                <form class="navbar-form navbar-right" role="search"
+                  action="http://www.google.com/cse" 
+                  id="searchbox_{{ link }}" target="_blank"> 
+                  <div class="form-group">
+                  <div class="input-group" style="width:200px">
+                    <input type="hidden" name="cx" value="{{ link }}" /> 
+                    <input type="text" name="q" class="form-control" placeholder="Search">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                    </span>
+                  </div>
+                  </div>
+                </form>
+              </li>
+
+            {% else %}
+            <li {% block menuitem_active scoped %}{{ link }}{% endblock %}>
+                <a href="{{ SITEURL }}/{{ link }}">{{ title }}</a>
+                {{ url }}
+              </li>
+            {% endif %}
+
+          {% elif link is iterable %}
+            <li class="btn-group">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                {{ title }}<b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                {% for title,link in link %}
+                <li><a href="{{ link }}">{{ title }}</a></li>
+                {% endfor %}
+              </ul>
+            </li>
+          {% endif %}
+          {% endfor %}
+
+          </ul>
+        </div>
+      </div><!-- /.navbar-collapse -->
+    </nav>
 
     <div id="wrap">
       <div class="container">

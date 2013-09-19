@@ -39,7 +39,7 @@
           </li>
 
         {% else %}
-          <li {% block menuitem_active scoped %}{% endblock %}>
+        <li {% block menuitem_active scoped %}{{ link }}{% endblock %}>
             <a href="{{ SITEURL }}/{{ link }}">{{ title }}</a>
           </li>
         {% endif %}
