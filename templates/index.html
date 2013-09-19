@@ -1,14 +1,7 @@
+{% set name = 'Recent Posts' %}
+{% set link = '' %}
+
 {% extends "base.html" %}
-
-{% block menuitem_active %}
-{% if link == '' %}class="active"{% endif %}
-{% endblock %}
-
-{% block header %}
-  {% set link = [SITEURL,link]|join('/') %}
-  {% set name = 'Recent Posts' %}
-  {% include 'header.html' %}
-{% endblock %}
 
 {% block content %}
 {% if articles %}
@@ -16,55 +9,67 @@
     {% set articles = articles_page.object_list %}
   {% endif %}
 
+  <div class="panel-group" id="accordion">
     {% for article in articles %}
-    <div class="panel panel-default">
-      <a id="" class="" data-toggle="collapse" 
+
+    <div class="panel panel-primary">
+      <div class="panel-heading panel-title">
+        {{- article.date|strftime('%Y-%B') -}}
+      <a class="accordion-toggle" data-toggle="collapse" 
         {#data-parent="#accordionYear{{ year.grouper }}" #}
         href="#collapseArticle{{ loop.index }}">
-      <div class="panel-heading">
-        {{- article.date|strftime('%Y-%B') -}}
         <span class="pull-right badge">
           #{{ articles|count - loop.index0 }}
         </span>
-      </div>
       </a>
+      </div>
 
-        <div class="panel-body-nest">
-          <ul class="list-group">
-            <a id="index-panel-title" class="list-group-item" href="{{ SITEURL }}/{{ article.url }}">
-              {{- article.title -}}
-              <span class="pull-right">
-                {{- article.locale_date }}
-              </span>
-            </a>
+      <div class="panel-body">
+        <a href="/{{ article.url }}">
+            <h4>
+            {{- article.title -}}
+            <span class="pull-right">
+              {{- article.locale_date }}
+            </span>
+            </h4>
+        </a>
 
-            <div class="panel-collapse collapse in"
-              id="collapseArticle{{ loop.index }}">
-              <li class="list-group-item">
-                {% include 'article_infos.html' %}
-                <a class="pull-right" href="{{ SITEURL }}/{{ article.url }}">
-                  </a>
-              </li>
-              {% if article.summary %}
-              <li class="list-group-item">
-                {{- article.summary -}}
-              </li>
-              {% endif %}
-              <ul class="list-inline text-right">
-                <li>
-                  <a class="list-group-item" href="{{ SITEURL }}/{{ article.url }}">
-                  <span class="glyphicon glyphicon-link"></span></a>
-                </li>
-              </ul>
+      </div>
+
+      <ul class="list-group">
+        <div class="collapse in"
+          id="collapseArticle{{ loop.index }}">
+          <li class="list-group-item">
+            {% from 'macro.html' import article_info with context %}
+            {{ article_info(article) }}
+            <a class="pull-right" href="/{{ article.url }}">
+              </a>
+          </li>
+          {% if article.summary %}
+          <li class="list-group-item">
+            {{- article.summary -}}
+          </li>
+          {% endif %}
+          <li class="list-group-item text-right">
+            <div class="btn-group">
+              <a class="btn btn-primary" href="/{{ article.url }}#disqus_thread">
+                <span class="glyphicon glyphicon-comment"></span></a>
+              </a>
+              <a class="btn btn-primary" href="/{{ article.url }}">
+                <span class="glyphicon glyphicon-link"></span></a>
+              </a>
             </div>
-          </ul>
+          </li>
         </div>
+      </ul>
     </div>
     {% endfor %}
+  </div>
 
 {% endif %}
 {% endblock content %}
 
 {% block footer %}
-  {% include 'pagination.html' %}
+  {% from 'macro.html' import pagination with context %}
+  {{ pagination() }}
 {% endblock %}

@@ -1,11 +1,6 @@
+{% set name = article.title %}
+{% set link = article.url %}
 {% extends "base.html" %}
-{% block title %}{{ article.title|striptags }}-{{ SITENAME }}{% endblock %}
-
-{% block header %}
-  <div class="page-header">
-    <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
-  </div>
-{% endblock %}
 
 {% block left_sidebar %}
 {% endblock %}
@@ -14,17 +9,25 @@
 {% endblock %}
 
 {% block content %}
-  {% include 'article_infos.html' %}
+  {% from 'macro.html' import article_info with context %}
+
+  {{ article_info(article) }}
   <hr/>
+
   <div>
     {{ article.content }}
   </div>
 
-  {% if article.related_posts %}
   <hr/>
-  <h2>Related Posts</h2>
-    {% set list_group = article.related_posts %}
-    {% include 'article_list_group.html' %}
+  {% if article.related_posts %}
+    {% from 'macro.html' import article_panel_list with context %}
+    {% set articles = article.related_posts %}
+    {% set parent = '' %}
+    {% set id = "collapseRelated" %}
+    {% set title_left = "Related Posts" %}
+    {% set title_right = articles|count %}
+    {% set entry_list = articles %}
+    {{ article_panel_list(parent,id,title_left,title_right,entry_list) }}
   {% endif %}
 
   {% for temp in dates %}
@@ -35,19 +38,17 @@
       {% if not loop.last %}
         {% set next = dates[loop.index0+1] %}
       {% endif %}
-      <hr/>
       <ul class="pager">
         <li class="previous{% if not prev %} disabled{% endif %}">
-        <a {% if prev %}href="{{ SITEURL }}/{{ prev.url }}"{% endif %}>
+        <a {% if prev %}href="/{{ prev.url }}"{% endif %}>
           &laquo; Newer</a>
         </li>
         <li class="next{% if not next %} disabled{% endif %}">
-        <a {% if next %}href="{{ SITEURL }}/{{ next.url }}"{% endif %}>
+        <a {% if next %}href="/{{ next.url }}"{% endif %}>
           Older &raquo;</a>
         </li>
       </ul>
     {% endif %}
-
   {% endfor %}
 
   {% if DISQUS_SITENAME %}

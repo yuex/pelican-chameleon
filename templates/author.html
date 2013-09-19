@@ -1,20 +1,15 @@
+{% set name = author %}
+{% set link = ["author/",author,".html"]|join %}
 {% extends "base.html" %}
 
-{% block title %}{{ SITENAME }} - {{ author }}{% endblock %}
-
-{% block menuitem_active %}
-{% if link == "{{ page_name}}.html" %}class="active"{% endif %}
-{% endblock %}
-
 {% block content %}
-  <div class="page-header">
-    <h1><a href="{{ SITEURL }}/author/{{ author }}.html">{{ author }}'s articles</a></h1>
-  </div>
 
-{% if dates %}
-  {% set list_group = dates %}
-  {% include 'article_list_group.html' %}
-
-{% endif %}
+  {% from 'macro.html' import article_panel_list with context %}
+  {% set parent = '' %}
+  {% set id = ["collapse",author]|join %}
+  {% set title_left = author %}
+  {% set title_right = articles|count %}
+  {% set entry_list = articles %}
+  {{ article_panel_list(parent,id,title_left,title_right,entry_list) }}
 
 {% endblock %}

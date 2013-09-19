@@ -1,24 +1,13 @@
+{% set name = ["Category: ",category]|join %}
+{% set link = ["category/",category,".html"]|join %}
 {% extends "base.html" %}
 
-{% block title %}{{ SITENAME }} - {{ category }}{% endblock %}
-
-{% block menuitem_active %}
-{% if link == "{{ page_name}}.html" %}class="active"{% endif %}
-{% endblock %}
-
-{% block header %}
-  {% set link = [SITEURL,'category',category|string+'.html']|join('/') %}
-  {% set name = ['category',category]|join(':') %}
-  {% include 'header.html' %}
-{% endblock %}
-
 {% block content %}
-
-{% for category_t,articles in categories %}
-  {% if category_t == category %}
-    {% set list_group = articles %}
-    {% include 'article_list_group.html' %}
-  {% endif%}
-{% endfor%}
-
+  {% from 'macro.html' import article_panel_list with context %}
+  {% set parent = '' %}
+  {% set id = ["collapse",category]|join %}
+  {% set title_left = category %}
+  {% set title_right = articles|count %}
+  {% set entry_list = articles %}
+  {{ article_panel_list(parent,id,title_left,title_right,entry_list) }}
 {% endblock %}

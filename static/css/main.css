@@ -1,15 +1,10 @@
-@import url("solarizedlight.css");
+/*@import url("solarizedlight.css");*/
 
 html,
 body {
   height: 100%;
   padding-top: 20px;
 }
-
-hr {
-  border-top-color: #ddd;
-}
-
 
 /* Wrapper for page content to push down footer */
 #wrap {
@@ -24,71 +19,10 @@ hr {
 
 /* Set the fixed height of the footer here */
 #footer {
+  border-radius: 0;
   height: 60px;
-  background-color: #f5f5f5;
+  /*background-color: #f5f5f5;*/
   padding: 20px 0;
-}
-
-.page-header {
-  border-bottom-color: #ddd;
-}
-
-.panel-body-nest {
-  margin: 0;
-}
-
-.panel-body-nest > * {
-  border-radius: 0;
-}
-
-.panel-body-nest > .list-group {
-  margin: 0;
-}
-
-.panel-body-nest > .panel-group > .panel {
-  margin-top: 0;
-}
-
-.panel-body-nest > .panel-group > .panel + .panel {
-  margin-top: 0;
-  border-top-width: 0;
-}
-
-.panel-body-nest .panel,
-.panel-body-nest .list-group .list-group-item {
-  border-radius: 0;
-  border-width: 1px 0;
-}
-
-.panel-body-nest .panel:last-child,
-.panel-body-nest .list-group .list-group-item:last-child {
-  border-bottom-width: 0;
-}
-
-.panel-body-nest .panel-body {
-  border-top-width: 1px;
-}
-
-.panel > a:link,
-.panel > a:visited,
-.panel > a:hover,
-.panel > a:active {
-  text-decoration: none;
-}
-
-.panel-default > a > .panel-heading {
-  color: #333333;
-  background-color: #f5f5f5;
-  border-color: #dddddd;
-}
-
-.panel-default > .panel-heading {
-  background-image: none;
-  /*border-bottom: 1px solid #ddd;*/
-}
-
-#index-panel-title {
-  border-top-width: 0;
 }
 
 td.code {
@@ -111,47 +45,113 @@ pre {
     border-bottom-left-radius:0;
 }
 
-blockquote {
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  border-left-width: 5px;
-}
+/*blockquote {*/
+  /*border-radius: 4px;*/
+  /*border-left-width: 5px;*/
+/*}*/
 
-a.panel-heading {
-  display: block;
-  border-bottom-width: 0;
-}
+/*hr {*/
+  /*border-top-color: #ddd;*/
+/*}*/
 
-.panel-default > a.panel-heading,
-a.panel-heading:link,
-a.panel-heading:active {
-  color: #428bca;
-  background-color: #fff;
-}
+/*.page-header {*/
+  /*border-bottom-color: #ddd;*/
+/*}*/
 
-a.panel-heading:hover, 
-a.panel-heading:focus {
-  background-color: #f5f5f5;
-}
+/*.panel-body-nest {*/
+  /*margin: 0;*/
+/*}*/
 
-a.list-group-item {
-  border-top-width: 0;
-  color: #428bca;
-}
+/*.panel-body-nest > * {*/
+  /*border-radius: 0;*/
+/*}*/
 
-.list-inline li {
-  padding: 0;
-}
+/*.panel-body-nest > .list-group {*/
+  /*margin: 0;*/
+/*}*/
 
-.list-inline.text-right li {
-  margin-left: -4px;
+/*.panel-body-nest > .panel-group > .panel {*/
+  /*margin-top: 0;*/
+/*}*/
 
-}
-.list-inline.text-left li {
-  margin-right: -4px;
+/*.panel-body-nest > .panel-group > .panel + .panel {*/
+  /*margin-top: 0;*/
+  /*border-top-width: 0;*/
+/*}*/
 
-}
+/*.panel-body-nest .panel,*/
+/*.panel-body-nest .list-group .list-group-item {*/
+  /*border-radius: 0;*/
+  /*border-width: 1px 0;*/
+/*}*/
 
-.navbar .navbar-nav > .active > a {
-  background-color: #e7e7e7;
-}
+/*.panel-body-nest .panel:last-child,*/
+/*.panel-body-nest .list-group .list-group-item:last-child {*/
+  /*border-bottom-width: 0;*/
+/*}*/
+
+/*.panel-body-nest .panel-body {*/
+  /*border-top-width: 1px;*/
+/*}*/
+
+/*.panel > a:link,*/
+/*.panel > a:visited,*/
+/*.panel > a:hover,*/
+/*.panel > a:active {*/
+  /*text-decoration: none;*/
+/*}*/
+
+/*.panel-default > a > .panel-heading {*/
+  /*color: #333333;*/
+  /*background-color: #f5f5f5;*/
+  /*border-color: #dddddd;*/
+/*}*/
+
+/*.panel-default > .panel-heading {*/
+  /*background-image: none;*/
+  /*[>border-bottom: 1px solid #ddd;<]*/
+/*}*/
+
+/*#index-panel-title {*/
+  /*border-top-width: 0;*/
+/*}*/
+
+
+/*a.panel-heading {*/
+  /*display: block;*/
+  /*border-bottom-width: 0;*/
+/*}*/
+
+/*.panel-default > a.panel-heading,*/
+/*a.panel-heading:link,*/
+/*a.panel-heading:active {*/
+  /*color: #428bca;*/
+  /*background-color: #fff;*/
+/*}*/
+
+/*a.panel-heading:hover, */
+/*a.panel-heading:focus {*/
+  /*background-color: #f5f5f5;*/
+/*}*/
+
+/*a.list-group-item {*/
+  /*border-top-width: 0;*/
+  /*color: #428bca;*/
+/*}*/
+
+/*.list-inline li {*/
+  /*padding: 0;*/
+/*}*/
+
+/*.list-inline.text-right li {*/
+  /*margin-left: -4px;*/
+
+/*}*/
+/*.list-inline.text-left li {*/
+  /*margin-right: -4px;*/
+
+/*}*/
+
+/*.navbar .navbar-nav > .active > a {*/
+  /*background-color: #e7e7e7;*/
+/*}*/

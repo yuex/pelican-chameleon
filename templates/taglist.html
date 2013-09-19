@@ -1,2 +1,12 @@
-{% if article.tags %}<p>tags: {% for tag in article.tags %}<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% endfor %}</p>{% endif %}
-{% if PDF_PROCESSOR %}<p><a href="{{ SITEURL }}/pdf/{{ article.slug }}.pdf">get the pdf</a></p>{% endif %}
+{% set name = 'Tag List' %}
+{% set link = 'taglist.html' %}
+{% extends "base.html" %}
+
+{% block content %}
+{% if tags %}
+
+  {% from 'macro.html' import taglist %}
+  {{ taglist('tag',tags) }}
+
+{% endif %}
+{% endblock %}

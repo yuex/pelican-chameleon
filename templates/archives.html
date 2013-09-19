@@ -1,64 +1,46 @@
+{% set name = 'Archives' %}
+{% set link = 'archives.html' %}
 {% extends "base.html" %}
 
-{% block menuitem_active %}
-{% if link == 'archives.html' %}class="active"{% endif %}
-{% endblock %}
-
 {% block content %}
-  <div class="page-header">
-    <h1><a href="{{ SITEURL }}/{{ link }}">All Posts</a></h1>
-  </div>
-
 {% if dates %}
 {# year list #}
   <div class="panel-group" id="accordion">
     {% for articles_group_by_year in dates|groupby('date.year')|reverse %}
       {% set year = articles_group_by_year %}
-      <div class="panel panel-default">
+      <div class="panel panel-primary">
       {# year list heading #}
-        <a class="accordion-toggle" data-toggle="collapse" 
-          {# data-parent="#accordion" #}
-          href="#collapseYear{{ year.grouper }}">
-          <div class="panel-heading">
-              {{ year.grouper }}
+        <div class="panel-heading panel-title">
+          {{ year.grouper }}
+          <a class="accordion-toggle" data-toggle="collapse" 
+            {# data-parent="#accordion" #}
+            href="#collapseYear{{ year.grouper }}">
             <span class="badge pull-right">
               {{ year.list|count }}
             </span>
-          </div>
-        </a>
+          </a>
+        </div>
       {# end year list heading #}
 
       {# year list body #}
         <div class="panel-collapse collapse in" 
           id="collapseYear{{ year.grouper }}">
-          <div class="panel-body-nest">
+          <div class="panel-body">
 
             {# month list#}
                 <div class="panel-group" id="accordionYear{{ year.grouper }}">
                 {% for articles_group_by_month in year.list|groupby('date.month')|reverse %}
+
                   {% set month = articles_group_by_month %}
-                  <div class="panel panel-default">
-                    <a class="accordion-toggle" data-toggle="collapse" 
-                      {#data-parent="#accordionYear{{ year.grouper }}" #}
-                      href="#collapseYear{{ year.grouper }}Month{{ month.grouper }}">
-                      <div class="panel-heading">
-                          {{ month.list[0].date|strftime('%B') }}
-                        <span class="badge pull-right">
-                          {{ month.list|count }}
-                        </span>
-                      </div>
-                    </a>
 
-                    <div class="panel-collapse collapse in" 
-                      id="collapseYear{{ year.grouper }}Month{{ month.grouper }}">
-                      <div class="panel-body-nest">
+                  {% from 'macro.html' import article_panel_list with context %}
+                  {% set parent = ["accordionYear",year.grouper]|join %}
+                  {% set id = ["collapseYear",year.grouper,"Month",month.grouper]|join %}
+                  {% set title_left = month.list[0].date|strftime('%B') %}
+                  {% set title_right = month.list|count %}
+                  {% set entry_list = month.list %}
+                  {{ article_panel_list(parent,id,title_left,title_right,entry_list) }}
 
-                        {% set list_group = month.list %}
-                        {% include 'article_list_group.html' %}
-
-                      </div>
-                    </div>
-                  </div>
                 {% endfor %}
                 </div>
             {# end month list #}

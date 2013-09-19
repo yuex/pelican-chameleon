@@ -1,20 +1,13 @@
+{% set name = ["Tag: ",tag]|join %}
+{% set link = ["tag/",tag,".html"]|join %}
 {% extends "base.html" %}
-{% block title %}{{ SITENAME }} - {{ tag }}{% endblock %}
-
-{% block header %}
-  {% set link = [SITEURL,'tag',tag|string+'.html']|join('/') %}
-  {% set name = ['Tag',tag]|join(':') %}
-  {% include 'header.html' %}
-{% endblock %}
 
 {% block content %}
-
-{% for tag_t,articles in tags %}
-
-  {% if tag_t == tag %}
-    {% set list_group = articles %}
-    {% include 'article_list_group.html' %}
-  {% endif%}
-{% endfor%}
-
+  {% from 'macro.html' import article_panel_list with context %}
+  {% set parent = '' %}
+  {% set id = ["collapse",tag]|join %}
+  {% set title_left = tag %}
+  {% set title_right = articles|count %}
+  {% set entry_list = articles %}
+  {{ article_panel_list(parent,id,title_left,title_right,entry_list) }}
 {% endblock %}

@@ -1,52 +1,25 @@
+{% set name = 'Tags' %}
+{% set link = 'tags.html' %}
 {% extends "base.html" %}
 
-{% block menuitem_active %}
-{% if link == 'tags.html' %}class="active"{% endif %}
-{% endblock %}
-
 {% block content %}
-  <div class="page-header">
-    <h1><a href="{{ SITEURL }}/tags.html">Tags</a></h1>
-  </div>
-
 {% if tags %}
-    <p>
-    {% for tag, articles in tags|sort %}
-      <a class="label label-primary" 
-        href="{{ SITEURL }}/tags.html#{{ tag }}">
-            {{ tag }} {{ articles|count }}</a>
-    {% endfor %}
-    </p>
+  <p>
+    {% from 'macro.html' import taglist %}
+    {{ taglist('tag',tags) }}
+  </p>
 
   <div class="panel-group" id="accordion">
     {% for tag, articles in tags|sort %}
-      <div class="panel panel-default">
-        {# tag heading #}
-        <a id="{{ tag }}" class="accordion-toggle" data-toggle="collapse" 
-          {# data-parent="#accordion" #}
-          href="#collapsetag{{ tag }}">
-          <div class="panel-heading">
-              {{ tag }}
-            <span class="badge pull-right">
-              {{ articles|count }}
-            </span>
-          </div>
-        </a>
-      {# end tag heading #}
 
-      {# tag body #}
-        <div class="panel-collapse collapse in"
-          id="collapsetag{{ tag }}">
-          <div class="panel-body-nest">
+      {% from 'macro.html' import article_panel_list with context %}
+      {% set parent = "accordion" %}
+      {% set id = tag %}
+      {% set title_left = tag %}
+      {% set title_right = articles|count %}
+      {% set entry_list = articles %}
+      {{ article_panel_list(parent,id,title_left,title_right,entry_list) }}
 
-            {% set list_group = articles %}
-            {% include 'article_list_group.html' %}
-
-          </div>
-        </div>
-      {# end tag body #}
-
-      </div>
     {% endfor %}
   </div>
 

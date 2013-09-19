@@ -1,54 +1,26 @@
+{% set name = 'Categories' %}
+{% set link = 'categories.html' %}
+
 {% extends "base.html" %}
 
-{% block menuitem_active %}
-{% if link == 'categories.html' %}class="active"{% endif %}
-{% endblock %}
-
 {% block content %}
-  <div class="page-header">
-    <h1><a href="{{ SITEURL }}/categories.html">Categories</a></h1>
-  </div>
-
 {% if categories %}
     <p>
-    {% for category, articles in categories|sort %}
-      <a class="label label-primary" 
-        href="{{ SITEURL }}/categories.html#{{ category }}">
-            {{ category }} {{ articles|count }}</a>
-    {% endfor %}
+      {% from 'macro.html' import taglist %}
+      {{ taglist('category',categories) }}
     </p>
 
   <div class="panel-group" id="accordion">
     {% for category, articles in categories|sort %}
-      <div class="panel panel-default">
-        {# category heading #}
-        <a id="{{ category }}" class="accordion-toggle" data-toggle="collapse" 
-          {# data-parent="#accordion" #}
-          href="#collapsecategory{{ category }}">
-          <div class="panel-heading">
-            <span>
-              {{- category -}}
-            </span>
-            <span class="badge pull-right">
-              {{- articles|count -}}
-            </span>
-          </div>
-        </a>
-      {# end category heading #}
 
-      {# category body #}
-        <div class="panel-collapse collapse in"
-          id="collapsecategory{{ category }}">
-          <div class="panel-body-nest">
+      {% from 'macro.html' import article_panel_list with context %}
+      {% set parent = "accordion" %}
+      {% set id = ["collapsecategory",category]|join %}
+      {% set title_left = category %}
+      {% set title_right = articles|count %}
+      {% set entry_list = articles %}
+      {{ article_panel_list(parent,id,title_left,title_right,entry_list) }}
 
-            {% set list_group = articles %}
-            {% include 'article_list_group.html' %}
-
-          </div>
-        </div>
-      {# end category body #}
-
-      </div>
     {% endfor %}
   </div>
 
