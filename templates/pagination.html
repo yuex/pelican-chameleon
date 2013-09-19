@@ -12,10 +12,16 @@
     {% endif %}
 
     {% for num in articles_paginator.page_range %}
-    <li {% if articles_page.number == num %}class="active"{% endif %}>
-      <a href="{{ STIEURL }}/{{page_name}}{% if num != 1 %}{{ num }}{% endif %}.html">
+    {% if articles_page.number != num %}
+      <li>
+        <a href="{{ STIEURL }}/{{page_name}}{% if num != 1 %}{{ num }}{% endif %}.html">
           {{- num }}<span class="sr-only">(current)</span></a>
-    </li>
+      </li>
+    {% else %}
+      <li class="active">
+        <a>{{- num }}<span class="sr-only">(current)</span></a>
+      </li>
+    {% endif %}
     {% endfor %}
 
     {% if articles_page.has_next() %}

@@ -28,10 +28,10 @@
 
         <div class="panel-body-nest">
           <ul class="list-group">
-            <a class="list-group-item" href="{{ SITEURL }}/{{ article.url }}">
+            <a id="index-panel-title" class="list-group-item" href="{{ SITEURL }}/{{ article.url }}">
               {{- article.title -}}
               <span class="pull-right">
-                {{- article.locale_date }}<!-- <span class="glyphicon glyphicon-link">--></span>
+                {{- article.locale_date }}
               </span>
             </a>
 
@@ -47,7 +47,12 @@
                 {{- article.summary -}}
               </li>
               {% endif %}
-              <a class="list-group-item show text-right" href="{{ SITEURL }}/{{ article.url }}"><span class="glyphicon glyphicon-link"></span></a>
+              <ul class="list-inline text-right">
+                <li>
+                  <a class="list-group-item" href="{{ SITEURL }}/{{ article.url }}">
+                  <span class="glyphicon glyphicon-link"></span></a>
+                </li>
+              </ul>
             </div>
           </ul>
         </div>
