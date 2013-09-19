@@ -6,22 +6,19 @@
 {% if link == "{{ page_name}}.html" %}class="active"{% endif %}
 {% endblock %}
 
-{% block content %}
-{% if category and dates %}
-    <section id="content" class="body">
-        <article>
-            <header>
-                <h1 class="entry-title">{{ category }} ({{ dates.__len__() }})</h1>
-            </header>
+{% block header %}
+  {% set link = [SITEURL,'category',category|string+'.html']|join('/') %}
+  {% set name = ['category',category]|join(':') %}
+  {% include 'header.html' %}
+{% endblock %}
 
-            <div class="entry-content">
-                <ul>
-                    {% for article in dates %}
-                        <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </article>
-    </section>
-{% endif %}
+{% block content %}
+
+{% for category_t,articles in categories %}
+  {% if category_t == category %}
+    {% set list_group = articles %}
+    {% include 'article_list_group.html' %}
+  {% endif%}
+{% endfor%}
+
 {% endblock %}

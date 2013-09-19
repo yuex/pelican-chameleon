@@ -13,7 +13,7 @@
     <p>
     {% for category, articles in categories|sort %}
       <a class="label label-primary" 
-        href="{{ SITEURL }}/categories.html#category{{ category }}-ref">
+        href="{{ SITEURL }}/categories.html#{{ category }}">
             {{ category }} {{ articles|count }}</a>
     {% endfor %}
     </p>
@@ -22,10 +22,10 @@
     {% for category, articles in categories|sort %}
       <div class="panel panel-default">
         {# category heading #}
-        <a id="category{{ category }}-ref" class="accordion-toggle" data-toggle="collapse" 
+        <a id="{{ category }}" class="accordion-toggle" data-toggle="collapse" 
           {# data-parent="#accordion" #}
           href="#collapsecategory{{ category }}">
-          <div class="panel-heading panel-title">
+          <div class="panel-heading">
             <span>
               {{- category -}}
             </span>

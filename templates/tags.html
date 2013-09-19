@@ -13,7 +13,7 @@
     <p>
     {% for tag, articles in tags|sort %}
       <a class="label label-primary" 
-        href="{{ SITEURL }}/tags.html#tag{{ tag }}-ref">
+        href="{{ SITEURL }}/tags.html#{{ tag }}">
             {{ tag }} {{ articles|count }}</a>
     {% endfor %}
     </p>
@@ -22,10 +22,10 @@
     {% for tag, articles in tags|sort %}
       <div class="panel panel-default">
         {# tag heading #}
-        <a id="tag{{ tag }}-ref" class="accordion-toggle" data-toggle="collapse" 
+        <a id="{{ tag }}" class="accordion-toggle" data-toggle="collapse" 
           {# data-parent="#accordion" #}
           href="#collapsetag{{ tag }}">
-          <div class="panel-heading panel-title">
+          <div class="panel-heading">
               {{ tag }}
             <span class="badge pull-right">
               {{ articles|count }}

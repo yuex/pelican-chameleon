@@ -19,7 +19,7 @@
         <a class="accordion-toggle" data-toggle="collapse" 
           {# data-parent="#accordion" #}
           href="#collapseYear{{ year.grouper }}">
-          <div class="panel-heading panel-title">
+          <div class="panel-heading">
               {{ year.grouper }}
             <span class="badge pull-right">
               {{ year.list|count }}
@@ -41,7 +41,7 @@
                     <a class="accordion-toggle" data-toggle="collapse" 
                       {#data-parent="#accordionYear{{ year.grouper }}" #}
                       href="#collapseYear{{ year.grouper }}Month{{ month.grouper }}">
-                      <div class="panel-heading panel-title">
+                      <div class="panel-heading">
                           {{ month.list[0].date|strftime('%B') }}
                         <span class="badge pull-right">
                           {{ month.list|count }}

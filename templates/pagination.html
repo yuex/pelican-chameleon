@@ -1,15 +1,33 @@
 {% if DEFAULT_PAGINATION %}
-<p id="paginator" class="body">
+  <ul class="pagination">
+
     {% if articles_page.has_previous() %}
-        {% if articles_page.previous_page_number() == 1 %}
-            <a href="{{ SITEURL }}/{{ page_name }}.html">&laquo;prev</a>
-        {% else %}
-            <a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.previous_page_number() }}.html">&laquo;prev</a>
-        {% endif %}
+      <li>
+        <a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.previous_page_number() }}.html">&laquo;</a>
+      </li>
+    {% else %}
+      <li class="disabled">
+        <a>&laquo;</a>
+      </li>
     {% endif %}
-    Page {{ articles_page.number }} / {{ articles_paginator.num_pages }}
+
+    {% for num in articles_paginator.page_range %}
+    <li {% if articles_page.number == num %}class="active"{% endif %}>
+      <a href="{{ STIEURL }}/{{page_name}}{% if num != 1 %}{{ num }}{% endif %}.html">
+          {{- num }}<span class="sr-only">(current)</span></a>
+    </li>
+    {% endfor %}
+
     {% if articles_page.has_next() %}
-        <a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html">next&raquo;</a>
+      <li>
+        <a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html">&raquo;</a>
+      </li>
+    {% else %}
+      <li class="disabled">
+        <a>&raquo;</a>
+      </li>
     {% endif %}
-</p>
+
+  </ul>
+
 {% endif %}

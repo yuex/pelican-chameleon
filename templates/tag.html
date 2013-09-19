@@ -1,2 +1,20 @@
-{% extends "index.html" %}
+{% extends "base.html" %}
 {% block title %}{{ SITENAME }} - {{ tag }}{% endblock %}
+
+{% block header %}
+  {% set link = [SITEURL,'tag',tag|string+'.html']|join('/') %}
+  {% set name = ['Tag',tag]|join(':') %}
+  {% include 'header.html' %}
+{% endblock %}
+
+{% block content %}
+
+{% for tag_t,articles in tags %}
+
+  {% if tag_t == tag %}
+    {% set list_group = articles %}
+    {% include 'article_list_group.html' %}
+  {% endif%}
+{% endfor%}
+
+{% endblock %}

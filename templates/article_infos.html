@@ -1,12 +1,12 @@
 <span>
   <a class="label label-default" 
-    href="{{ SITEURL }}/categories.html#category{{ article.category }}-ref">
+    href="{{ SITEURL }}/categories.html#{{ article.category }}f">
     {{- article.category -}}
   </a>
   <b>|</b>
   {% for tag in article.tags %}
     <a class="label label-default" 
-      href="{{ SITEURL }}/tags.html#tag{{ tag }}-ref">
+      href="{{ SITEURL }}/tags.html#{{ tag }}">
       {{- tag -}}
     </a>
   {% endfor %}
