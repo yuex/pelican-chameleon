@@ -13,23 +13,20 @@
     <!-- Bootstrap core CSS -->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-
-    <!-- Optional theme -->
-    <!--<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">-->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/flatly/bootstrap.min.css">
-    <!--<link rel="stylesheet" href="http://bootswatch.com/cyborg/bootstrap.min.css">-->
-
-    <!--css for pelican-->
-    <link rel="stylesheet" href="/theme/css/main.css" type="text/css">
-    <!--<link rel="stylesheet" href="/theme/css/solarizedlight.css" type="text/css">-->
-
-    <!--code highlight-->
-
-
-    <!-- Latest compiled and minified JavaScript -->
+    <link rel="stylesheet" href="/theme/css/main.css">
+    <link rel="stylesheet" href="/theme/css/pygments.css" type="text/css">
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
+    <!--<link rel="stylesheet" href="/theme/css/bootstrap.min.css">-->
+    <!--<link rel="stylesheet" href="/theme/css/flatly.css" type="text/css">-->
+    <!--<link rel="stylesheet" href="/theme/css/main.css" type="text/css">-->
+    <!--<link rel="stylesheet" href="/theme/css/solarizedlight.css" type="text/css">-->
+    <!--<script src="/theme/js/jquery-1.10.2.min.js"></script>-->
+    <!--<script src="/theme/js/jquery-migrate-1.2.1.min.js"></script>-->
+    <!--<script src="/theme/js/bootstrap.min.js"></script>-->
 
 </head>
 
@@ -42,7 +39,7 @@
     <div class="container">
 
       <div class="row">
-        <div class="col-md-6 col-md-offset-3">
+        <div class="col-md-8 col-md-offset-2">
         {% from 'macro.html' import header %}
         {{ header(name,link) }}
         </div>
@@ -50,11 +47,11 @@
 
       <div class="row">
 
-        <div class="col-md-2 col-md-offset-1">
+        <div class="col-md-2 col-md-offset-0">
           {% block left_sidebar %}{% endblock %}
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-8">
           {% block content %}{% endblock %}
         </div>
 
@@ -66,7 +63,7 @@
 
       <div id="pagination">
       <div class="row">
-        <div class="col-md-6 col-md-offset-3">
+        <div class="col-md-8 col-md-offset-2">
           {% block footer %}{% endblock %}
         </div>
       </div>

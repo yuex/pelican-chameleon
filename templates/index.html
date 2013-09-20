@@ -24,19 +24,21 @@
       </a>
       </div>
 
-      <div class="panel-body">
+      <div class="panel-body hidden">
+
+      </div>
+
+      <ul class="list-group">
         <a href="/{{ article.url }}">
+          <li class="list-group-item">
             <h4>
             {{- article.title -}}
             <span class="pull-right">
               {{- article.locale_date }}
             </span>
             </h4>
+          </li>
         </a>
-
-      </div>
-
-      <ul class="list-group">
         <div class="collapse in"
           id="collapseArticle{{ loop.index }}">
           <li class="list-group-item">
@@ -54,10 +56,12 @@
             <div class="btn-group">
               <a class="btn btn-primary" href="/{{ article.url }}#disqus_thread">
                 <span class="glyphicon glyphicon-comment"></span></a>
-              </a>
               <a class="btn btn-primary" href="/{{ article.url }}">
                 <span class="glyphicon glyphicon-link"></span></a>
-              </a>
+              <a class="btn btn-primary accordion-toggle" data-toggle="collapse" 
+                {#data-parent="#accordionYear{{ year.grouper }}" #}
+                href="#collapseArticle{{ loop.index }}">
+                <span class="glyphicon glyphicon-chevron-up"></span></a>
             </div>
           </li>
         </div>
