@@ -1,6 +1,6 @@
-@import url("solarizedlight.css");
+@import url("pygments.css");
 @import url("//fonts.googleapis.com/css?family=Inconsolata");
-/*@import url("//fonts.googleapis.com/css?family=Anonymous+Pro");*/
+@import url("//fonts.googleapis.com/css?family=Lato");
 
 html,
 body {
@@ -29,6 +29,12 @@ body {
 
 td.code {
     width:100%;
+}
+
+html,
+body {
+  font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 15px;
 }
 
 code,
