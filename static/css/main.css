@@ -1,4 +1,4 @@
-@import url("pygments.css");
+@import url("solarized-light.css");
 @import url("//fonts.googleapis.com/css?family=Inconsolata");
 @import url("//fonts.googleapis.com/css?family=Lato");
 
@@ -43,44 +43,3 @@ pre {
     font-weight: bold;
     font-size: 15px;
 }
-
-code,
-pre {
-    background-color: #fdf6e3;
-}
-
-/*code {*/
-  /*color: #657b83;*/
-/*}*/
-
-/*blockquote {*/
-    /*border-color: #002b36;*/
-/*}*/
-
-/*html,*/
-/*body {*/
-  /*background-color: #eee8d5;*/
-/*}*/
-
-/*hr,*/
-/*.page-header,*/
-/*.panel li {*/
-  /*border-color: #eee8d5;*/
-/*}*/
-
-/*code,*/
-/*.panel li {*/
-  /*background-color: #fdf6e3;*/
-/*}*/
-/*.codehilitetable .linenodiv pre {*/
-    /*color: #839496;*/
-    /*background-color:#073642;*/
-    /*border-top-right-radius:0;*/
-    /*border-bottom-right-radius:0;*/
-/*}*/
-
-/*.codehilitetable .codehilite pre {*/
-    /*border-top-left-radius:0;*/
-    /*border-bottom-left-radius:0;*/
-/*}*/
-
