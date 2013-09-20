@@ -185,7 +185,8 @@
         {{- tag -}}
       </a>
     {% endfor %}
-    {{ article.locale_date }}
+    <span class="glyphicon glyphicon-calendar"></span>
+      {{- article.locale_date -}}
     <span class="glyphicon glyphicon-user"></span>
     {% if AUTHORS[article.author] %}
       {% set author_url = AUTHORS[article.author] %}
