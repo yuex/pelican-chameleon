@@ -137,7 +137,11 @@
 
       {% if articles_page.has_previous() %}
         <li>
-          <a href="/{{ page_name }}{{ articles_page.previous_page_number() }}.html">&laquo;</a>
+          {% if articles_page.previous_page_number() == 1 %}
+            <a href="/{{ page_name }}.html">&laquo;</a>
+          {% else %}
+            <a href="/{{ page_name }}{{ articles_page.previous_page_number() }}.html">&laquo;</a>
+          {% endif %}
         </li>
       {% else %}
         <li class="disabled">
