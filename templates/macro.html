@@ -180,13 +180,13 @@
 {% macro article_info(article) %}
   <span>
     <a class="label label-primary" 
-      href="/categories.html#{{ article.category }}">
+      href="/category/{{ article.category }}.html">
       {{- article.category -}}
     </a>
     <b>|</b>
     {% for tag in article.tags %}
       <a class="label label-primary" 
-        href="/tags.html#{{ tag }}">
+        href="/tag/{{ tag }}.html">
         {{- tag -}}
       </a>
     {% endfor %}
