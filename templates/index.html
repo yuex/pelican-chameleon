@@ -19,7 +19,7 @@
         {#data-parent="#accordionYear{{ year.grouper }}" #}
         href="#collapseArticle{{ loop.index }}">
         <span class="pull-right badge">
-          #{{ articles|count - loop.index0 }}
+          #{{ dates|count - (articles_page.number-1)*DEFAULT_PAGINATION - loop.index0 }}
         </span>
       </a>
       </div>
