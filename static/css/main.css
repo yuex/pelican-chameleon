@@ -5,7 +5,11 @@
 html,
 body {
   height: 100%;
-  padding-top: 20px;
+  /*padding-top: -20px;*/
+}
+
+.navbar {
+  margin-bottom: 0;
 }
 
 /* Wrapper for page content to push down footer */
@@ -42,4 +46,12 @@ pre {
     font-family: "Inconsolata", "Anonymous Pro", Monaco, Menlo, Consolas, 'Courier New', monospace;
     font-weight: bold;
     font-size: 15px;
+}
+
+p {
+  word-break: break-all;
+  /*hyphens: auto;*/
+  /*-ms-hyphens: auto;*/
+  /*-webkit-hyphens: auto;*/
+  /*-moz-hyphens: auto;*/
 }
