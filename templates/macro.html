@@ -66,46 +66,44 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav navbar-right">
+          {% for title,url in MENUITEMS %}
+            {% if url is string %}
+              {% if title == 'Search' %}
+                <li>
+                  <form class="navbar-form navbar-right" role="search"
+                    action="http://www.google.com/cse" 
+                    id="searchbox_{{ url }}" target="_blank"> 
+                    <div class="form-group">
+                    <div class="input-group" style="width:200px">
+                      <input type="hidden" name="cx" value="{{ url }}" /> 
+                      <input type="text" name="q" class="form-control" placeholder="Search">
+                      <span class="input-group-btn">
+                        <button class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
+                      </span>
+                    </div>
+                    </div>
+                  </form>
+                </li>
 
-        {% for title,url in MENUITEMS %}
-          {% if url is string %}
-            {% if title == 'Search' %}
-              <li>
-                <form class="navbar-form navbar-right" role="search"
-                  action="http://www.google.com/cse" 
-                  id="searchbox_{{ url }}" target="_blank"> 
-                  <div class="form-group">
-                  <div class="input-group" style="width:200px">
-                    <input type="hidden" name="cx" value="{{ url }}" /> 
-                    <input type="text" name="q" class="form-control" placeholder="Search">
-                    <span class="input-group-btn">
-                      <button class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
-                    </span>
-                  </div>
-                  </div>
-                </form>
-              </li>
+              {% else %}
+              <li {% if url == link %}class="active"{% endif %}>
+                  <a href="{{ url }}">{{ title }}</a>
+                </li>
+              {% endif %}
 
-            {% else %}
-            <li {% if url == link %}class="active"{% endif %}>
-                <a href="{{ url }}">{{ title }}</a>
+            {% elif url is iterable %}
+              <li class="btn-group">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  {{- title }}<b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                  {% for title,url in url %}
+                  <li><a href="{{ url }}">{{ title }}</a></li>
+                  {% endfor %}
+                </ul>
               </li>
             {% endif %}
-
-          {% elif url is iterable %}
-            <li class="btn-group">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                {{- title }}<b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu" role="menu">
-                {% for title,url in url %}
-                <li><a href="{{ url }}">{{ title }}</a></li>
-                {% endfor %}
-              </ul>
-            </li>
-          {% endif %}
-        {% endfor %}
-
+          {% endfor %}
         </ul>
       </div>
     </div><!-- /.navbar-collapse -->
@@ -113,19 +111,14 @@
 {% endmacro %}
 
 {% macro footer() %}
-  <nav id="footer" class="navbar navbar-default" role="complementary">
+  <nav id="footer" class="navbar navbar-default">
     <div class="container">
-      <div class="text-muted">
-        <span>
+      <div class="text-muted text-center">
+        <span class="">
           Powered by <a href="http://docs.getpelican.com">Pelican</a>,
           theme <a href="http://github.com/yuex/pelican-iliork">iliork</a>
-          built by <a href="http://getbootstrap.com">Bootstrap 3</a>
-        </span>
-
-        <span class="hidden-xs pull-right">
-          Compiled by
-          <a href="{{ AUTHORS[AUTHOR] }}">{{ AUTHOR }}</a>
-          since 2013
+          built by <a href="http://getbootstrap.com">Bootstrap 3</a>.
+          Compiled by <a href="{{ AUTHORS[AUTHOR] }}">{{ AUTHOR }}</a> since 2013
         </span>
       </div>
     </div>
