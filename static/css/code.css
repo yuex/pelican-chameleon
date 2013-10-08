@@ -1,0 +1,9 @@
+@import url("solarized-light.css");
+@import url("//fonts.googleapis.com/css?family=Inconsolata");
+
+code,
+pre {
+    font-family: "Inconsolata", "Anonymous Pro", Monaco, Menlo, Consolas, 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 15px;
+}

@@ -1,7 +1,3 @@
-@import url("solarized-light.css");
-@import url("//fonts.googleapis.com/css?family=Inconsolata");
-@import url("//fonts.googleapis.com/css?family=Lato");
-
 html,
 body {
   height: 100%;
@@ -17,9 +13,9 @@ body {
   height: auto !important;
   height: 100%;
   /* Negative indent footer by its height */
-  margin: 0 auto -54px;
+  margin: 0 auto -61px;
   /* Pad bottom by footer height */
-  padding: 0 0 54px;
+  padding: 0 0 61px;
 }
 
 /* Set the fixed height of the footer here */
@@ -35,19 +31,6 @@ body {
 
 td.code {
     width:100%;
-}
-
-html,
-body {
-  font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 17px;
-}
-
-code,
-pre {
-    font-family: "Inconsolata", "Anonymous Pro", Monaco, Menlo, Consolas, 'Courier New', monospace;
-    font-weight: bold;
-    font-size: 15px;
 }
 
 p {
