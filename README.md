@@ -1,9 +1,6 @@
 # pelican-iliork
 
-A theme for [pelican][], inspired by [pelican-elegant][], bulit by bootstrap. More details later
-
-[pelican]: https://github.com/getpelican/pelican
-[pelican-elegant]: https://github.com/talha131/pelican-elegant
+A theme for [pelican][], inspired by [pelican-elegant][], bulit on [Bootstrap][]. Have a live demo at [iliork][]. ( together with Bootstrap theme [Flatly][]. For Bootstrap theme support feature of pelican-iliork, see below )
 
 # Features
 ## Author link customization
@@ -15,13 +12,15 @@ A theme for [pelican][], inspired by [pelican-elegant][], bulit by bootstrap. Mo
 
 ## Bootstrap theme support 
 
-    B3_THEME = '//netdna.bootstrapcdn.com/bootswatch/3.0.0/flatly/bootstrap.min.css    '
+You can change the default appearance of Bootstrap to any Bootstrap theme you like. Have a look at [Bootswatch][]
+
+    B3_THEME = '//netdna.bootstrapcdn.com/bootswatch/3.0.0/flatly/bootstrap.min.css'
 
 ## Use your own code highlight css
 
     CODE_HIGHLIGHT = '/theme/css/solarized-light.css'
 
-## Nested menuitem
+## Nested MENUITEMS
 
 For now, only 1-level nesting is allowed. More nesting seems not clean
 
@@ -46,3 +45,10 @@ Put following in your MENUITEMS to have a search box on top navbar. 'Search' is 
     MENUITEMS = [
         ('Search', 'your Google custom search value'),
         ]
+    
+[pelican]: https://github.com/getpelican/pelican
+[pelican-elegant]: https://github.com/talha131/pelican-elegant
+[Bootstrap]: http://getbootstrap.com
+[iliork]: http://blog.iliork.com
+[Bootswatch]: http://bootswatch.com
+[Flatly]: http://bootswatch.com/flatly/
