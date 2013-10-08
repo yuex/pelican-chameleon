@@ -6,4 +6,5 @@ pre {
     font-family: "Inconsolata", "Anonymous Pro", Monaco, Menlo, Consolas, 'Courier New', monospace;
     font-weight: bold;
     font-size: 15px;
+    border: 1px #ccc solid;
 }
