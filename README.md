@@ -13,9 +13,9 @@ You can change the default appearance of Bootstrap to any Bootstrap theme you li
 
     B3_THEME = '//netdna.bootstrapcdn.com/bootswatch/3.0.0/flatly/bootstrap.min.css'
 
-## Use your own code highlight css
+## Use your own code highlighting css
 
-    CODE_HIGHLIGHT = '/theme/css/solarized-light.css'
+    CODE_HIGHLIGHT = 'url to your favorite code highlight css'
 
 ## Support for Nested menu items
 
