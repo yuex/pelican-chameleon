@@ -1,10 +1,10 @@
-# pelican-iliork
+# Pelican-iliork
 
-A theme for [pelican][], inspired by [pelican-elegant][], bulit on [Bootstrap][], version 3.0.0. I try to follow the KISS and DRY principle, while providing readability.
+A theme for [pelican][], inspired by [pelican-elegant][]. It's bulit on [Bootstrap][], version 3.0.0. I try to follow the [KISS][] and [DRY][] principle, while providing readability.
 
-Pelican-iliork adopted a single column design due to simplicity and readability. But it can be extended to a double or triple column design easily. You can checkout out the source code or simply `Inspect Elemnts`; there are blank left and right sidebar. 
+Pelican-iliork adopted a single column design due to simplicity and readability. But it can be extended to a double or triple column design easily. You can checkout out the source code or simply `Inspect Elemnt` in your favorite browser; you can see there are blank left and right sidebar. 
 
-You can check out the live demo at [iliork][], my personal blog, mainly in Chinese. Now or then, I'll try out some Bootstrap theme together with pelican-iliork. For the Bootstrap theme support feature of pelican-iliork, see below.
+You can get a live demo at [iliork][], my personal blog, mainly in Chinese. Now or then, I'll try out some Bootstrap theme together with pelican-iliork. For the Bootstrap theme support feature of pelican-iliork, see below.
 
 # Features
 ## Bootstrap theme support 
