@@ -1,6 +1,6 @@
 # pelican-iliork
 
-A theme for [pelican][], inspired by [pelican-elegant][], bulit on [Bootstrap][]. Have a live demo at [iliork][]. ( together with Bootstrap theme [Flatly][]. For Bootstrap theme support feature of pelican-iliork, see below )
+A theme for [pelican][], inspired by [pelican-elegant][], bulit on [Bootstrap][]. Have a live demo at [iliork][]. Now or then, I'll try out some Bootstrap theme together with pelican-iliork. For the Bootstrap theme support feature of pelican-iliork, see below.
 
 # Features
 ## Author link customization
