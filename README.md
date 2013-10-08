@@ -1,15 +1,12 @@
 # pelican-iliork
 
-A theme for [pelican][], inspired by [pelican-elegant][], bulit on [Bootstrap][]. Have a live demo at [iliork][]. Now or then, I'll try out some Bootstrap theme together with pelican-iliork. For the Bootstrap theme support feature of pelican-iliork, see below.
+A theme for [pelican][], inspired by [pelican-elegant][], bulit on [Bootstrap][], version 3.0.0. I try to follow the KISS and DRY principle, while providing readability.
+
+Pelican-iliork adopted a single column design due to simplicity and readability. But it can be extended to a double or triple column design easily. You can checkout out the source code or simply `Inspect Elemnts`; there are blank left and right sidebar. 
+
+You can check out the live demo at [iliork][], my personal blog, mainly in Chinese. Now or then, I'll try out some Bootstrap theme together with pelican-iliork. For the Bootstrap theme support feature of pelican-iliork, see below.
 
 # Features
-## Author link customization
-
-    AUTHORS = {
-        u'jack': '/about.html',
-        u'mary': 'http://mary.info',
-    }
-
 ## Bootstrap theme support 
 
 You can change the default appearance of Bootstrap to any Bootstrap theme you like. Have a look at [Bootswatch][]
@@ -20,9 +17,9 @@ You can change the default appearance of Bootstrap to any Bootstrap theme you li
 
     CODE_HIGHLIGHT = '/theme/css/solarized-light.css'
 
-## Nested MENUITEMS
+## Support for Nested menu items
 
-For now, only 1-level nesting is allowed. More nesting seems not clean
+Nested menu items are put together as a drop-down button on the top navbar. Only 1-level nesting is allowed, because I think it's unnecessary and clumsy to have too much nesting in menu items.
 
     MENUITEMS = [
         ('Home', '/'),
@@ -38,7 +35,7 @@ For now, only 1-level nesting is allowed. More nesting seems not clean
             ]),
         ]
 
-## Support for Google custom search
+## Built-in support for Google custom search
 
 Put following in your MENUITEMS to have a search box on top navbar. 'Search' is the key, mandatory.
     
@@ -46,9 +43,22 @@ Put following in your MENUITEMS to have a search box on top navbar. 'Search' is 
         ('Search', 'your Google custom search value'),
         ]
     
+## Author link customization
+
+You can direct the author link to whatever you want. It's not hard-coded in the theme.
+
+    AUTHORS = {
+        u'jack': '/about.html',
+        u'mary': 'http://mary.info',
+    }
+
+
+
 [pelican]: https://github.com/getpelican/pelican
 [pelican-elegant]: https://github.com/talha131/pelican-elegant
 [Bootstrap]: http://getbootstrap.com
+[KISS]: http://en.wikipedia.org/wiki/KISS_principle
+[DRY]: http://en.wikipedia.org/wiki/Don%27t_Repeat_Yourself
 [iliork]: http://blog.iliork.com
 [Bootswatch]: http://bootswatch.com
 [Flatly]: http://bootswatch.com/flatly/
