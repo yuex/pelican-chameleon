@@ -117,7 +117,12 @@
         <span class="">
           Powered by <a href="http://docs.getpelican.com">Pelican</a>,
           theme <a href="http://github.com/yuex/pelican-iliork">iliork</a>
-          built on <a href="http://getbootstrap.com">Bootstrap</a>.
+          built on <a href="http://getbootstrap.com">Bootstrap</a>
+          {%- if BS3_THEME_NAME %} and 
+            {%- if BS3_THEME_HOMEPAGE %} <a href="{{ BS3_THEME_HOMEPAGE }}">{{ BS3_THEME_NAME }}</a>
+            {%- else %} {{ BS3_THEME_NAME }}
+            {%- endif -%}
+          {%- endif -%}.
           Copyright © <a href="{{ AUTHORS[AUTHOR] }}">{{ AUTHOR }}</a>
         </span>
       </div>

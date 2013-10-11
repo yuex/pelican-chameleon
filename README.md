@@ -9,9 +9,11 @@ You can get a live demo at [iliork][], my personal blog, mainly in Chinese. Now 
 # Features
 ## Bootstrap theme support 
 
-You can change the default appearance of Bootstrap to any Bootstrap theme you like. Have a look at [Bootswatch][]
+You can change the default appearance of Bootstrap to any Bootstrap theme you like. `BS3_THEME` defined the url of the theme's css file; `BS3_THEME_NAME` and `BS3_THEME_HOMEPAGE`, used in the footer, defined the title and title to the theme's homepage. Have a look at [Bootswatch][]
 
-    B3_THEME = '//netdna.bootstrapcdn.com/bootswatch/3.0.0/flatly/bootstrap.min.css'
+    BS3_THEME = '//netdna.bootstrapcdn.com/bootswatch/3.0.0/flatly/bootstrap.min.css'
+    BS3_THEME_NAME = 'Flatly'
+    BS3_THEME_HOMEPAGE = 'http://bootstrap.com/flatly'
 
 ## Use your own code highlighting css
 
