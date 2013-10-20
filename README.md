@@ -19,7 +19,7 @@ You can change the default appearance of Bootstrap to any Bootstrap theme you li
 
     CODE_HIGHLIGHT = 'url to your favorite code highlight css'
 
-## Support for Nested menu items
+## Nested menu items support
 
 Nested menu items are put together as a drop-down button on the top navbar. Only 1-level nesting is allowed, because I think it's unnecessary and clumsy to have too much nesting in menu items.
 
@@ -45,15 +45,15 @@ Put following in your MENUITEMS to have a search box on top navbar. 'Search' is 
         ('Search', 'your Google custom search value'),
         ]
     
-## Author link customization
+## Multi-author support
 
 You can direct the author link to whatever you want. It's not hard-coded in the theme.
 
     AUTHORS = {
         u'jack': '/about.html',
         u'mary': 'http://mary.info',
+        u'tony': 'http://tony.me',
     }
-
 
 
 [pelican]: https://github.com/getpelican/pelican
