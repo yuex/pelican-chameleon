@@ -1,34 +1,42 @@
 # Pelican-iliork
 
-A theme for [pelican][], inspired by [pelican-elegant][]. It's bulit on [Bootstrap][], version 3.0.0. I try to follow the [KISS][] and [DRY][] principle, while providing readability.
+Pelican-iliork is a single-column theme for [pelican][], targeting at blog writing. The primary goal of pelican-iliork is to provide simplicity and readability.
 
-Pelican-iliork adopted a single column design due to simplicity and readability. But it can be extended to a double or triple column design easily. You can checkout out the source code or simply `Inspect Elemnt` in your favorite browser; you can see there are blank left and right sidebar. 
+Pelican-iliork is built on [Bootstrap][] version 3.0. Some notable features are:
 
-You can get a live demo at [iliork][], my personal blog, mainly in Chinese. Now or then, I'll try out some Bootstrap theme together with pelican-iliork. For the Bootstrap theme support feature of pelican-iliork, see below.
+- Support for bootstrap theme
+- Support for self-configurable code highlighting CSS
+- Support for nestable menu items
+- Support for Google custom search
+- Support for multi-author
+
+You can get a live demo at [iliork][], my personal blog, mainly in Chinese.
 
 # Features
-## Bootstrap theme support 
+## Bootstrap theme
 
-You can change the default appearance of Bootstrap to any Bootstrap theme you like. `BS3_THEME` defined the url of the theme's css file; `BS3_THEME_NAME` and `BS3_THEME_HOMEPAGE`, used in the footer, defined the title and title to the theme's homepage. Have a look at [Bootswatch][]
+You can change the default appearance of Bootstrap to any Bootstrap theme you like. `BS3_THEME` defines the url of the theme's css file; `BS3_THEME_NAME` and `BS3_THEME_HOMEPAGE` define the name and url, used in the footer, of bootstrap theme. Have a look at [Bootswatch][].
 
     BS3_THEME = '//netdna.bootstrapcdn.com/bootswatch/3.0.0/flatly/bootstrap.min.css'
     BS3_THEME_NAME = 'Flatly'
     BS3_THEME_HOMEPAGE = 'http://bootstrap.com/flatly'
 
-## Use your own code highlighting css
+## Use your own code highlight CSS
+
+You can use your own css file for code highlight. If you do not provide this value, pelican-iliork will the default css file, `code.css`.
 
     CODE_HIGHLIGHT = 'url to your favorite code highlight css'
 
-## Nested menu items support
+## Nestable menu items
 
-Nested menu items are put together as a drop-down button on the top navbar. Only 1-level nesting is allowed, because I think it's unnecessary and clumsy to have too much nesting in menu items.
+Menu items in pelican-iliork is nestable. `MENUITEMS` are rendered as a top navbar. Nested menu items are rendered together as a drop-down button on the top navbar. But only 1-level nesting is allowed; it's clumsy, and perhaps wrong, to nest too much items in the menu. Here's a example.
 
     MENUITEMS = [
         ('Home', '/'),
         ('Archives', [
             ('Tags', '/tags.html'),
             ('Categories', '/categories.html'),
-            ('Archives', '/archives.html'),
+            ('Chronological', '/archives.html'),
             ]),
         ('Social', [
             ('Email', 'url to your email'),
@@ -37,17 +45,16 @@ Nested menu items are put together as a drop-down button on the top navbar. Only
             ]),
         ]
 
-## Built-in support for Google custom search
+## Google custom search
 
-Put following in your MENUITEMS to have a search box on top navbar. 'Search' is the key, mandatory.
-    
+Put following in your MENUITEMS to have a Google custom search box on top navbar. 'Search' is the key, mandatory.
+
     MENUITEMS = [
         ('Search', 'your Google custom search value'),
         ]
-    
-## Multi-author support
 
-You can direct the author link to whatever you want. It's not hard-coded in the theme.
+## Multi-author
+You can direct the author link to whichever you want. It's not hard-coded in the theme.
 
     AUTHORS = {
         u'jack': '/about.html',
