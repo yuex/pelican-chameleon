@@ -24,6 +24,12 @@ body {
 
 html,
 body {
+  font-size: 15px;
+}
+
+.navbar {
+  margin-bottom: 0;
+  border-radius: 0;
   font-size: 17px;
 }
 
@@ -32,13 +38,23 @@ body {
   padding: 20px 0;
 }
 
-blockquote p {
-  font-size: 17px;
+h1 {font-size: 1.7em;}
+h2 {font-size: 1.6em;}
+h3 {font-size: 1.5em;}
+h4 {font-size: 1.4em;}
+h5 {font-size: 1.3em;}
+h6 {font-size: 1.2em;}
+
+#article_info {
+  font-size: 1.0em;
 }
 
-.navbar {
-  margin-bottom: 0;
-  border-radius: 0;
+blockquote p {
+  font-size: 1.0em;
+}
+
+.pagination {
+  font-size: 1.2em;
 }
 
 td.code {

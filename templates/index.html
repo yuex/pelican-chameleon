@@ -1,4 +1,4 @@
-{% set name = 'Recent Posts' %}
+{% set name = '' %}
 {% set link = '' %}
 
 {% extends "base.html" %}
@@ -58,10 +58,8 @@
                 <span class="glyphicon glyphicon-comment"></span></a>
               <a class="btn btn-primary" href="/{{ article.url }}">
                 <span class="glyphicon glyphicon-link"></span></a>
-              <a class="btn btn-primary accordion-toggle" data-toggle="collapse" 
-                {#data-parent="#accordionYear{{ year.grouper }}" #}
-                href="#collapseArticle{{ loop.index }}">
-                <span class="glyphicon glyphicon-chevron-up"></span></a>
+              <a class="btn btn-primary" href="/{{ article.url }}">
+                <span class="glyphicon glyphicon-plus"></span></a>
             </div>
           </li>
         </div>

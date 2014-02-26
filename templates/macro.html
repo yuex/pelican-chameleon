@@ -1,5 +1,4 @@
 {% macro article_panel_list(parent='', id='', title_left='', title_right='', entry_list=[]) %}
-
   <div class="panel panel-primary">
     <div class="panel-heading ">
       {{- title_left -}}
@@ -32,17 +31,18 @@
     </ul>
 
   </div>
-
 {% endmacro %}
 
 {% macro header(name, link) %}
-{% if name %}
-  {% if link %}
-  <div class="page-header">
-    <h2><a href="{{ link }}">{{ name }}</a></h2>
-  </div>
+  {% if name %}
+    {% if link %}
+    <div class="page-header">
+      <h1><a href="{{ link }}">{{ name }}</a></h1>
+    </div>
+    {% endif %}
+  {% else %}
+    <p>&nbsp;</p>
   {% endif %}
-{% endif %}
 {% endmacro%}
 
 {% macro navbar(link) %}
@@ -117,9 +117,9 @@
         <span class="">
           Powered by <a href="http://docs.getpelican.com">Pelican</a>,
           theme <a href="http://github.com/yuex/pelican-iliork">iliork</a>
-          built on <a href="http://getbootstrap.com">Bootstrap</a>
-          {%- if BS3_THEME_NAME %} and 
-            {%- if BS3_THEME_HOMEPAGE %} <a href="{{ BS3_THEME_HOMEPAGE }}">{{ BS3_THEME_NAME }}</a>
+          {%- if BS3_THEME_NAME %}
+            built on <a href="http://getbootstrap.com">Bootstrap</a> and
+            {%- if BS3_THEME_HOMEPAGE %} <a href="{{ BS3_THEME_HOMEPAGE }}"> {{ BS3_THEME_NAME }}</a>
             {%- else %} {{ BS3_THEME_NAME }}
             {%- endif -%}
           {%- endif -%}.
@@ -176,7 +176,7 @@
 {% endmacro %}
 
 {% macro article_info(article) %}
-  <span>
+  <span id="article_info">
     <a class="label label-primary" 
       href="/category/{{ article.category }}.html">
       {{- article.category -}}
