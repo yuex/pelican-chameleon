@@ -10,7 +10,7 @@ Pelican-iliork is built on [Bootstrap][] version 3.0. Some notable features are:
 - Support for Google custom search
 - Support for multi-author
 
-You can get a live demo at [iliork][], my personal blog, mainly in Chinese.
+You can get a live demo at [iliork][], my personal blog, using [flatly][], mainly in Chinese.
 
 # Features
 ## Bootstrap theme
