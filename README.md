@@ -4,20 +4,20 @@ Pelican-iliork is a single-column theme for [pelican][], targeting at blog writi
 
 Pelican-iliork is built on [Bootstrap][] version 3.0. Some notable features are:
 
-- Support for bootstrap theme
+- Support for bootstrap theme, checkout [bootswatch][]
 - Support for self-configurable code highlighting CSS
 - Support for nestable menu items
 - Support for Google custom search
 - Support for multi-author
 
-You can get a live demo at [iliork][], my personal blog, using [flatly][], mainly in Chinese.
+You can get a live demo at [iliork][], using [flatly][], mainly in Chinese.
 
 # Features
 ## Bootstrap theme
 
-You can change the default appearance of Bootstrap to any Bootstrap theme you like. `BS3_THEME` defines the url of the theme's css file; `BS3_THEME_NAME` and `BS3_THEME_HOMEPAGE` define the name and url, used in the footer, of bootstrap theme. Have a look at [Bootswatch][].
+You can change the default appearance of Bootstrap to any Bootstrap theme you like. `BS3_THEME` defines the url of the theme's css file; `BS3_THEME_NAME` and `BS3_THEME_HOMEPAGE` define the name and url of bootstrap theme, which are used in the footer text. Have a look at [Bootswatch][].
 
-    BS3_THEME = '//netdna.bootstrapcdn.com/bootswatch/3.0.0/flatly/bootstrap.min.css'
+    BS3_THEME = 'http://bootswatch.com/flatly/bootstrap.min.css'
     BS3_THEME_NAME = 'Flatly'
     BS3_THEME_HOMEPAGE = 'http://bootstrap.com/flatly'
 
@@ -62,6 +62,25 @@ You can direct the author link to whichever you want. It's not hard-coded in the
         u'tony': 'http://tony.me',
     }
 
+# Screen Shots
+
+pelican-iliork with [amelia][]
+
+![amelia](./screenshot/amelia.png)
+
+pelican-iliork with [cosmo][]
+
+![cosmo](./screenshot/cosmo.png)
+
+pelican-iliork with [superhero][]
+
+![superhero](./screenshot/superhero.png)
+
+pelican-iliork with [united][]
+
+![united](./screenshot/united.png)
+
+
 
 [pelican]: https://github.com/getpelican/pelican
 [pelican-elegant]: https://github.com/talha131/pelican-elegant
@@ -70,4 +89,9 @@ You can direct the author link to whichever you want. It's not hard-coded in the
 [DRY]: http://en.wikipedia.org/wiki/Don%27t_Repeat_Yourself
 [iliork]: http://blog.iliork.com
 [Bootswatch]: http://bootswatch.com
-[Flatly]: http://bootswatch.com/flatly/
+[flatly]: http://bootswatch.com/flatly/
+[amelia]: http://bootswatch.com/amelia/
+[cosmo]: http://bootswatch.com/cosmo/
+[superhero]: http://bootswatch.com/superhero/
+[united]: http://bootswatch.com/united/
+
