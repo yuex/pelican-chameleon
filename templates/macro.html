@@ -113,8 +113,7 @@
 {% macro footer() %}
   <nav id="footer" class="navbar navbar-default">
     <div class="container">
-      <div class="text-muted text-center">
-        <span class="">
+        <p id="footer-text" class="navbar-text text-center">
           Powered by <a href="http://docs.getpelican.com">Pelican</a>,
           theme <a href="http://github.com/yuex/pelican-iliork">iliork</a>
           {%- if BS3_THEME_NAME %}
@@ -124,7 +123,7 @@
             {%- endif -%}
           {%- endif -%}.
           Copyright © <a href="{{ AUTHORS[AUTHOR] }}">{{ AUTHOR }}</a>
-        </span>
+        </p>
       </div>
     </div>
   </nav>

@@ -33,9 +33,10 @@ body {
   font-size: 17px;
 }
 
-#footer .container {
+#footer-text {
   font-size: 14px;
-  padding: 20px 0;
+  float: none;
+  margin: 20px 0;
 }
 
 h1 {font-size: 1.7em;}
