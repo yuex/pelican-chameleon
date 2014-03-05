@@ -67,6 +67,10 @@ You can direct the author link to whichever you want. It's not hard-coded in the
 
 # Screen Shots
 
+pelican-iliork with default boostrap theme
+
+![default](./screenshot/default.png)
+
 pelican-iliork with [amelia][]
 
 ![amelia](./screenshot/amelia.png)
