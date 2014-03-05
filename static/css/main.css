@@ -39,19 +39,24 @@ body {
   margin: 20px 0;
 }
 
-h1 {font-size: 1.7em;}
-h2 {font-size: 1.6em;}
-h3 {font-size: 1.5em;}
-h4 {font-size: 1.4em;}
-h5 {font-size: 1.3em;}
-h6 {font-size: 1.2em;}
+h1 {font-size: 1.6em;}
+h2 {font-size: 1.5em;}
+h3 {font-size: 1.4em;}
+h4 {font-size: 1.3em;}
+h5 {font-size: 1.2em;}
+h6 {font-size: 1.1em;}
 
 #article_info {
   font-size: 1.0em;
 }
 
+blockquote {
+  font-size: 1.1em;
+
+}
+
 blockquote p {
-  font-size: 1.0em;
+  font-size: 100%;
 }
 
 .pagination {
