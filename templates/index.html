@@ -17,6 +17,7 @@
         {{- article.date|strftime('%Y-%B') -}}
       <a class="accordion-toggle" data-toggle="collapse" 
         {#data-parent="#accordionYear{{ year.grouper }}" #}
+        title="toggle folding"
         href="#collapseArticle{{ loop.index }}">
         <span class="pull-right badge">
           #{{ dates|count - (articles_page.number-1)*DEFAULT_PAGINATION - loop.index0 }}
