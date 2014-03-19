@@ -34,6 +34,14 @@
   </div>
 {% endmacro %}
 
+{% macro pagetitle(name) %}
+  {% if name and name != '' %}
+    <title>{{ name }} · {{ SITENAME }}</title>
+  {% else %}
+    <title>{{ SITENAME }}</title>
+  {% endif %}
+{% endmacro %}
+
 {% macro header(name, link) %}
   {% if name %}
     {% if link %}
@@ -44,7 +52,7 @@
   {% else %}
     <p>&nbsp;</p>
   {% endif %}
-{% endmacro%}
+{% endmacro %}
 
 {% macro navbar(link) %}
   <nav class="navbar navbar-default" role="navigation">

@@ -7,8 +7,8 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../assets/ico/favicon.png">
 
-    <title>{{ SITENAME }} - {{ name }}</title>
-
+    {% from 'macro.html' import pagetitle with context %}
+    {{ pagetitle(name) }}
 
     <!-- Bootstrap core CSS -->
     <!-- Latest compiled and minified CSS -->
