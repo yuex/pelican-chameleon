@@ -203,7 +203,15 @@
     <!--<span class="glyphicon glyphicon-calendar"></span>-->
     {% if article.locale_date %}
       <b> · </b>
-      {{- article.locale_date -}}
+      {% set year = article.date|strftime('%Y') %}
+      {% set month = article.date|strftime('%m') %}
+      {% set day = article.date|strftime('%d') %}
+      <a href="/archives.html#Year{{ year }}">{{ year }}</a>
+      {{- '-' -}}
+      <a href="/archives.html#Year{{ year }}Month{{ month|int }}">{{ month }}</a>
+      {{- '-' -}}
+      <a href="/archives.html#Year{{ year }}Month{{ month|int }}Day{{ day }}">{{ day }}</a>
+
     {% endif %}
     <!--<span class="glyphicon glyphicon-user"></span>-->
     {% if article.author %}
