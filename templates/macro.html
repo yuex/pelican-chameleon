@@ -189,20 +189,28 @@
       href="/category/{{ article.category }}.html">
       {{- article.category -}}
     </a>
-    <b>|</b>
-    {% for tag in article.tags %}
-      <a class="label label-primary" 
-        href="/tag/{{ tag }}.html">
-        {{- tag -}}
-      </a>
-    {% endfor %}
-    <span class="glyphicon glyphicon-calendar"></span>
+    {% if article.tags %}
+      <b> · </b>
+      {% for tag in article.tags %}
+        <a class="label label-primary" 
+          href="/tag/{{ tag }}.html">
+          {{- tag -}}
+        </a>
+      {% endfor %}
+    {% endif %}
+    <!--<span class="glyphicon glyphicon-calendar"></span>-->
+    {% if article.locale_date %}
+      <b> · </b>
       {{- article.locale_date -}}
-    <span class="glyphicon glyphicon-user"></span>
-    {% if AUTHORS[article.author] %}
-      {% set author_url = AUTHORS[article.author] %}
-    {% else %}
-      {% set author_url = ["/author/",article.author,".html"]|join %}
+    {% endif %}
+    <!--<span class="glyphicon glyphicon-user"></span>-->
+    {% if article.author %}
+      <b> · </b>
+      {% if AUTHORS[article.author] %}
+        {% set author_url = AUTHORS[article.author] %}
+      {% else %}
+        {% set author_url = ["/author/",article.author,".html"]|join %}
+      {% endif %}
     {% endif %}
     <a href="{{ author_url }}">{{ article.author }}</a>
   </span>
