@@ -65,6 +65,12 @@ Put following in your MENUITEMS to have a Google custom search box on top navbar
         ('Search', 'your Google custom search value'),
         ]
 
+## Favicon
+
+To use your favicon (must be a png file), set following option in `pelicanconf.py`
+
+    FAVICON = u'url to your favicon.png'
+
 ## Multi-author
 You can direct the author link to whichever you want. It's not hard-coded in the theme.
 
