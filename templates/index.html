@@ -18,7 +18,7 @@
         {% set month = article.date|strftime('%B') %}
         {% set month_index = article.date|strftime('%m')|int %}
         <a href="/archives.html#Year{{ year }}">{{ year }}</a>
-        -
+        {{- ' - ' -}}
         <a href="/archives.html#Year{{ year }}Month{{ month_index }}">{{ month }}</a>
       <a class="accordion-toggle" data-toggle="collapse" 
         {#data-parent="#accordionYear{{ year.grouper }}" #}
