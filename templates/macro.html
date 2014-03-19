@@ -1,12 +1,12 @@
 {% macro article_panel_list(parent='', id='', title_left='', title_right='', entry_list=[]) %}
   <div class="panel panel-primary">
     <div class="panel-heading ">
-      {{- title_left -}}
+      <a href="#{{ id }}">{{- title_left -}}</a>
       {% if title_right %}
         <a class="accordion-toggle" data-toggle="collapse" 
-          {#data-parent="{{ parent }}"#}
+          {#data-parent="{{ parent }}accordin"#}
           title="toggle folding"
-          href="#{{ id }}">
+          href="#{{ id }}collaspe">
           <span class="badge pull-right">
             {{- title_right -}}
           </span>

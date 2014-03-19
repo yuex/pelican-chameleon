@@ -8,10 +8,11 @@
   <div class="panel-group" id="accordion">
     {% for articles_group_by_year in dates|groupby('date.year')|reverse %}
       {% set year = articles_group_by_year %}
+      {% set parent = ["Year",year.grouper]|join %}
       <div class="panel panel-primary">
       {# year list heading #}
-        <div class="panel-heading panel-title">
-          {{ year.grouper }}
+        <div class="panel-heading ">
+          <a href="#{{ parent }}">{{ year.grouper }}</a>
           <a class="accordion-toggle" data-toggle="collapse" 
             {# data-parent="#accordion" #}
             title="toggle folding"
@@ -28,15 +29,14 @@
           id="collapseYear{{ year.grouper }}">
           <div class="panel-body">
 
-            {# month list#}
+            {# month list #}
                 <div class="panel-group" id="accordionYear{{ year.grouper }}">
                 {% for articles_group_by_month in year.list|groupby('date.month')|reverse %}
 
                   {% set month = articles_group_by_month %}
 
                   {% from 'macro.html' import article_panel_list with context %}
-                  {% set parent = ["accordionYear",year.grouper]|join %}
-                  {% set id = ["collapseYear",year.grouper,"Month",month.grouper]|join %}
+                  {% set id = [parent,"Month",month.grouper]|join %}
                   {% set title_left = month.list[0].date|strftime('%B') %}
                   {% set title_right = month.list|count %}
                   {% set entry_list = month.list %}
