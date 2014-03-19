@@ -5,7 +5,7 @@ Pelican-iliork is a single-column theme for [pelican][], targeting at blog writi
 Pelican-iliork is built on [Bootstrap][] version 3.0. Some notable features are:
 
 - Support for bootstrap theme, checkout [Screen Shots][] below
-- Support for self-configurable code highlighting CSS
+- Support for css overwriting
 - Support for nestable menu items
 - Support for Google custom search
 - Support for multi-author
@@ -13,7 +13,8 @@ Pelican-iliork is built on [Bootstrap][] version 3.0. Some notable features are:
 You can get a live demo at [iliork][], using [flatly][], mainly in Chinese. For more demos, see [Screen Shots][] below.
 
 # Features
-## Bootstrap theme
+
+## Use Bootstrap Theme
 
 You can change the default appearance of Bootstrap to any Bootstrap theme you like. `BS3_THEME` defines the url of the theme's css file; `BS3_THEME_NAME` and `BS3_THEME_HOMEPAGE` define the name and url of bootstrap theme, which are used in the footer text.
 
@@ -24,11 +25,19 @@ See [Screen Shots][] for demos. For more theme to choose from, have a look at [B
     BS3_THEME_NAME = 'Flatly'
     BS3_THEME_HOMEPAGE = 'http://bootstrap.com/flatly'
 
-## Use your own code highlight CSS
+## Use CSS Overwriting
 
 You can use your own css file for code highlight. If you do not provide this value, pelican-iliork will the default css file, `code.css`.
 
+Pelican-iliork provides a easy to way to overwrite the css style of pelican-iliork by providing `CODE_HIGHLIGHT` and `CSS_OVERWRITE`. When switching Boostrap themes, you may find these useful.
+
+For example, if you want to use your preferred code highlight css, set the following option in your `pelicanconf.py`
+
     CODE_HIGHLIGHT = 'url to your favorite code highlight css'
+
+If you want to overwrite the css style of pelican-iliork iteself, use
+
+    CSS_OVERWRITE = 'url to your css'
 
 ## Nestable menu items
 
