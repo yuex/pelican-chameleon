@@ -1,7 +1,9 @@
-{% macro article_panel_list(parent='', id='', title_left='', title_right='', entry_list=[]) %}
+{% macro article_panel_list(parent='', id='', title_left='', title_right='', entry_list=[], show_date=False) %}
   <div class="panel panel-primary">
     <div class="panel-heading panel-title">
-      <a href="#{{ id }}">{{- title_left -}}</a>
+      <a href="#{{ id }}">
+        {{- title_left -}}
+      </a>
       {% if title_right %}
         <a class="accordion-toggle" data-toggle="collapse" 
           {#data-parent="{{ parent }}accordin"#}
@@ -21,8 +23,10 @@
         {% for article in entry_list %}
         <a href="/{{ article.url }}">
           <li class="list-group-item">
-            {{- article.date|strftime("%m-%d") -}}
-            <b> · </b>
+            {% if show_date %}
+              {{- article.date|strftime("%m-%d") -}}
+              <b> · </b>
+            {% endif %}
             {{- article.title -}}
           </li>
         </a>

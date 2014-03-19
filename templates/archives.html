@@ -40,7 +40,7 @@
                   {% set title_left = month.list[0].date|strftime('%B') %}
                   {% set title_right = month.list|count %}
                   {% set entry_list = month.list %}
-                  {{ article_panel_list(parent,id,title_left,title_right,entry_list) }}
+                  {{ article_panel_list(parent,id,title_left,title_right,entry_list,show_date=True) }}
 
                 {% endfor %}
                 </div>
