@@ -14,7 +14,12 @@
 
     <div class="panel panel-primary">
       <div class="panel-heading panel-title">
-        {{- article.date|strftime('%Y-%B') -}}
+        {% set year = article.date|strftime('%Y') %}
+        {% set month = article.date|strftime('%B') %}
+        {% set month_index = article.date|strftime('%m')|int %}
+        <a href="/archives.html#Year{{ year }}">{{ year }}</a>
+        -
+        <a href="/archives.html#Year{{ year }}Month{{ month_index }}">{{ month }}</a>
       <a class="accordion-toggle" data-toggle="collapse" 
         {#data-parent="#accordionYear{{ year.grouper }}" #}
         title="toggle folding"
@@ -33,10 +38,7 @@
         <a href="/{{ article.url }}">
           <li class="list-group-item">
             <h4>
-            {{- article.title -}}
-            <span class="pull-right">
-              {{- article.locale_date }}
-            </span>
+              {{- article.title -}}
             </h4>
           </li>
         </a>
