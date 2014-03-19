@@ -21,10 +21,9 @@
         {% for article in entry_list %}
         <a href="/{{ article.url }}">
           <li class="list-group-item">
+            {{- article.date|strftime("%m-%d") -}}
+            <b> · </b>
             {{- article.title -}}
-            <span class="pull-right">
-            {{- article.locale_date -}}
-            </span>
           </li>
         </a>
         {% endfor %}
