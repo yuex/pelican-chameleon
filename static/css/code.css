@@ -1,16 +1,14 @@
 @import url("solarized-light.css");
-@import url("//fonts.googleapis.com/css?family=Consolas");
 
 code,
 pre {
-    font-family: Consolas, 'Courier New', monospace;
-    font-size: 15px;
+    font-family: 'Inconsolata-g', monospace;
+    font-size: 13px;
     border: 1px #ccc solid;
     background-color: #f9f9f9;
     color: #586e75;
 }
 
 code {
-  font-size: 13px;
   padding: 1px ;
 }
