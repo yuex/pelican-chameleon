@@ -8,7 +8,7 @@
         <a class="accordion-toggle" data-toggle="collapse" 
           {#data-parent="{{ parent }}accordin"#}
           title="toggle folding"
-          href="#{{ id }}collaspe">
+          href="#{{ id }}collapse">
           <span class="badge pull-right">
             {{- title_right -}}
           </span>
@@ -19,7 +19,7 @@
     <div class="panel-body hidden"></div>
 
     <ul class="list-group">
-      <div class="panel-collapse collapse in" id="{{ id }}">
+      <div class="panel-collapse collapse in" id="{{ id }}collapse">
         {% for article in entry_list %}
         <a href="/{{ article.url }}">
           <li class="list-group-item">
