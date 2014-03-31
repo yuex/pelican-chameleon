@@ -6,7 +6,7 @@
     <meta name="description" content="{{ SITENAME }}">
     <meta name="author" content="{{ AUTHOR }}">
     {% if FAVICON %}
-    <link rel="icon" type="image/png" href="{{ FAVICON }}">
+    <link rel="icon" type="image/{{ FAVICON.split('.')[-1] }}" href="{{ FAVICON }}">
     {% endif %}
 
     {% from 'macro.html' import pagetitle with context %}
