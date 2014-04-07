@@ -12,9 +12,9 @@ body {
   height: auto !important;
   height: 100%;
   /* Negative indent footer by its height */
-  margin: 0 auto -60px;
+  margin: 0 auto -81px;
   /* Pad bottom by footer height */
-  padding: 0 0 60px;
+  padding: 0 0 81px;
 }
 
 .pagination {
@@ -36,6 +36,7 @@ body {
    */
   height: 60px;
   border-width: 0;
+  border-radius: 0;
   margin-top: 21px;
   margin-bottom: 0;
 }
