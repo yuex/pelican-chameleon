@@ -16,6 +16,12 @@ body {
   padding: 0 0 60px;
 }
 
+.pagination {
+  margin-top: auto;
+  margin-bottom: auto;
+  vertical-align: middle;
+}
+
 /* Set the fixed height of the footer here */
 #footer {
   /*
@@ -29,6 +35,7 @@ body {
    */
   height: 60px;
   border-width: 0;
+  margin-top: 21px;
   margin-bottom: 0;
 }
 

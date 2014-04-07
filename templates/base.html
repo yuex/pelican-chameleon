@@ -53,35 +53,31 @@
     {{ navbar(link) }}
 
     <div class="container">
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-        {% from 'macro.html' import pageheader %}
-        {{ pageheader(name,link) }}
-        </div>
+      <div class="col-md-2">
+        {% block left_sidebar %}{% endblock %}
       </div>
 
-      <div class="row">
-        <div class="col-md-2 col-md-offset-0">
-          {% block left_sidebar %}{% endblock %}
+      <div class="col-md-8">
+        <div class="row">
+          {% from 'macro.html' import pageheader %}
+          {{ pageheader(name,link) }}
         </div>
 
-        <div class="col-md-8">
+        <div class="row">
           {% block content %}{% endblock %}
         </div>
 
-        <div class="col-md-2">
-          {% block right_sidebar %}{% endblock %}
+        <div class="row">
+          {% block pagefooter %}{% endblock %}
         </div>
+
       </div>
 
-      <div id="pagination">
-        <div class="row">
-          <div class="col-md-8 col-md-offset-2">
-            {% block footer %}{% endblock %}
-          </div>
-        </div>
+      <div class="col-md-2">
+        {% block right_sidebar %}{% endblock %}
       </div>
     </div>
+
 
   </div>
 
