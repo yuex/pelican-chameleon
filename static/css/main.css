@@ -53,23 +53,70 @@ body {
   border-width: 0;
 }
 
-.navbar-form {
-  border-width: 1px 0 1px 0;
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-top: 8.5px;
-  padding-bottom: 8.5px;
+#navbar .navbar-header {
+  height: 60px;
 }
 
-.navbar-collapse {
+#navbar .navbar-header .navbar-brand {
+  font-size: 17px;
+  line-height: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  height: 100%;
+}
+
+#navbar .navbar-header .navbar-toggle {
+  margin-top: 13px;
+  margin-bottom: 13px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  border-width: 1px;
+  height: 34px;
+}
+
+.navbar-nav > li > a {
+  line-height: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  height: 100%;
+}
+@media (max-width: 767px) {
+  .navbar-nav >li > a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+#navbar .navbar-form {
+  /*border-width: 1px 0 1px 0;*/
+  height: 60px;
+  font-size: 15px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#navbar .navbar-form .form-control {
+  border-width: 2px;
+  padding: 6px;
+  height: 40px;
+  width: 170px;
+}
+@media (max-width: 767px) {
+  #navbar .navbar-form .form-control {
+    width: 100%;
+  }
+}
+
+#navbar .navbar-collapse {
   border-width: 0;
 }
 
-.navbar-collapse .navbar-nav {
+#navbar .navbar-collapse .navbar-nav {
   border-width: 0;
   margin-top: 0;
   margin-bottom: 0;
-  padding-top: 1px;
 }
 
 .page-header {
