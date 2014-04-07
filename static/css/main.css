@@ -3,6 +3,7 @@
 html,
 body {
   height: 100%;
+  font-size: 15px;
 }
 
 /* Wrapper for page content to push down footer */
@@ -39,9 +40,10 @@ body {
   margin-bottom: 0;
 }
 
-html,
-body {
-  font-size: 15px;
+#footer-text {
+  font-size: 14px;
+  float: none;
+  margin: 20px 0;
 }
 
 .navbar {
@@ -70,10 +72,10 @@ body {
   padding-top: 1px;
 }
 
-#footer-text {
-  font-size: 14px;
-  float: none;
-  margin: 20px 0;
+.page-header {
+  margin: 0;
+  margin-bottom: 21px;
+  padding: 0;
 }
 
 h1 {font-size: 1.8em;}
