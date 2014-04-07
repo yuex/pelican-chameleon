@@ -46,7 +46,7 @@ body {
   margin: 20px 0;
 }
 
-.navbar {
+#navbar {
   /*margin-bottom: 0;*/
   border-radius: 0;
   font-size: 17px;
@@ -74,17 +74,22 @@ body {
   height: 34px;
 }
 
-.navbar-nav > li > a {
+#navbar .navbar-nav > li > a {
   line-height: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
   height: 100%;
 }
 @media (max-width: 767px) {
-  .navbar-nav >li > a {
+  #navbar .navbar-nav >li > a {
+    font-size: 16px;
     padding-top: 10px;
     padding-bottom: 10px;
   }
+}
+
+#navbar .dropdown-menu {
+  font-size: 15px;
 }
 
 #navbar .navbar-form {
@@ -131,6 +136,13 @@ h3 {font-size: 1.3em;}
 h4 {font-size: 1.2em;}
 h5 {font-size: 1.1em;}
 h6 {font-size: 1.0em;}
+
+#home_article_list h1 {font-size: 1.6em}
+#home_article_list h2 {font-size: 1.4em}
+#home_article_list h3 {font-size: 1.2em}
+#home_article_list h4 {font-size: 1.1em}
+#home_article_list h5 {font-size: 1.0em}
+#home_article_list h6 {font-size: 1.0em}
 
 #article_info {
   font-size: 1.0em;
