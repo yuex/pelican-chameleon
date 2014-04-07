@@ -100,13 +100,21 @@
               {% endif %}
 
             {% elif url is iterable %}
-              <li class="btn-group">
+              <li class="btn-group
+                {%- for title,item_url in url -%}
+                  {%- if item_url == link -%}
+                    {{- ' active' -}}
+                  {%- endif -%}
+                {%- endfor -%}
+              ">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   {{- title }}<b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu" role="menu">
-                  {% for title,url in url %}
-                  <li><a href="{{ url }}">{{ title }}</a></li>
+                  {% for title,item_url in url %}
+                  <li {% if item_url == link %}class="active"{% endif %}>
+                    <a href="{{ item_url }}">{{ title }}</a>
+                  </li>
                   {% endfor %}
                 </ul>
               </li>
