@@ -149,6 +149,10 @@ h6 {font-size: 1.0em;}
   font-size: 1.0em;
 }
 
+.panel-body > .panel-group:last-child {
+  margin-bottom: 0;
+}
+
 blockquote {
   font-size: 1.0em;
 

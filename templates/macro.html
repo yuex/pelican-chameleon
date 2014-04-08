@@ -1,7 +1,7 @@
 {% macro article_panel_list(parent='', id='', title_left='', title_right='', entry_list=[], show_date=False) %}
   <div class="panel panel-primary">
     <div class="panel-heading panel-title">
-      <a href="#{{ id }}">
+      <a id="{{ id }}" href="#{{ id }}">
         {{- title_left -}}
       </a>
       {% if title_right %}
@@ -195,14 +195,16 @@
 {% macro article_info(article) %}
   <span id="article_info">
     <a class="label label-primary" 
-      href="/category/{{ article.category }}.html">
+      href="/categories.html#{{ article.category }}">
+      <!--href="/category/{{ article.category }}.html">-->
       {{- article.category -}}
     </a>
     {% if article.tags %}
       <b> · </b>
       {% for tag in article.tags %}
         <a class="label label-primary" 
-          href="/tag/{{ tag }}.html">
+          href="/tags.html#{{ tag }}">
+          <!--href="/tag/{{ tag }}.html">-->
           {{- tag -}}
         </a>
       {% endfor %}
@@ -217,7 +219,8 @@
       {{- '-' -}}
       <a href="/archives.html#Year{{ year }}Month{{ month|int }}">{{ month }}</a>
       {{- '-' -}}
-      <a href="/archives.html#Year{{ year }}Month{{ month|int }}Day{{ day }}">{{ day }}</a>
+      <a href="/archives.html#Year{{ year }}Month{{ month|int }}">{{ day }}</a>
+      <!--<a href="/archives.html#Year{{ year }}Month{{ month|int }}Day{{ day }}">{{ day }}</a>-->
 
     {% endif %}
     <!--<span class="glyphicon glyphicon-user"></span>-->

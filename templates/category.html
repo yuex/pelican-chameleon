@@ -5,7 +5,7 @@
 {% block content %}
   {% from 'macro.html' import article_panel_list with context %}
   {% set parent = '' %}
-  {% set id = ["collapse",category]|join %}
+  {% set id = category %}
   {% set title_left = category %}
   {% set title_right = articles|count %}
   {% set entry_list = articles %}
