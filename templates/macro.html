@@ -1,7 +1,11 @@
-{% macro article_panel_list(parent='', id='', title_left='', title_right='', entry_list=[], show_date=False) %}
+{% macro article_panel_list(parent='', id='', title_left='', title_right='', entry_list=[], show_date=False, title_left_link='') %}
+  {% if not title_left_link %}
+    {% set title_left_link = "#%s" % id %}
+  {% endif %}
+
   <div class="panel panel-primary">
     <div class="panel-heading panel-title">
-      <a id="{{ id }}" href="#{{ id }}">
+      <a id="{{ id }}" href="{{ title_left_link }}">
         {{- title_left -}}
       </a>
       {% if title_right %}
@@ -236,10 +240,10 @@
   </span>
 {% endmacro %}
 
-{% macro taglist(prefix='',tags) %}
-  {% for tag, articles in tags|sort %}
+{% macro taglist(list,prefix='',suffix='') %}
+  {% for tag, articles in list|sort %}
     <a class="label label-primary" 
-      href="/{{prefix}}/{{tag}}.html">
+      href="{{prefix}}{{tag}}{{suffix}}">
       {{- tag }} {{ articles|count }}</a>
   {% endfor %}
 {% endmacro %}

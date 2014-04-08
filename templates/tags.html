@@ -1,24 +1,32 @@
-{% set name = 'Tags' %}
-{% set link = 'tags.html' %}
+{% set name = "Tags" %}
+{% set link = "tags.html" %}
 {% extends "base.html" %}
 
 {% block content %}
 {% if tags %}
   <p>
-    {% from 'macro.html' import taglist %}
-    {{ taglist('tag',tags) }}
+    {% from "macro.html" import taglist %}
+    {{ taglist(tags, "#", "") }}
   </p>
 
   <div class="panel-group" id="accordion">
     {% for tag, articles in tags|sort %}
 
-      {% from 'macro.html' import article_panel_list with context %}
+      {% from "macro.html" import article_panel_list with context %}
       {% set parent = "accordion" %}
       {% set id = tag %}
       {% set title_left = tag %}
+      {% set title_left_link = "/tag/%s.html" % (tag) %}
       {% set title_right = articles|count %}
       {% set entry_list = articles %}
-      {{ article_panel_list(parent,id,title_left,title_right,entry_list) }}
+      {{ article_panel_list(
+        parent=parent,
+        id=id,
+        title_left=title_left,
+        title_left_link=title_left_link,
+        title_right=title_right,
+        entry_list=entry_list,
+      ) }}
 
     {% endfor %}
   </div>
