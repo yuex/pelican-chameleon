@@ -131,18 +131,18 @@
   <nav id="footer" class="navbar navbar-default">
     <div class="container">
         <p id="footer-text" class="navbar-text text-center">
-          Compiled using
-          <a href="http://docs.getpelican.com">Pelican</a>
-          with theme
-          <a href="http://github.com/yuex/pelican-iliork">iliork</a>
-          on top of
-          <a href="http://getbootstrap.com/">Bootstrap</a>
-          {%- if BS3_THEME_NAME -%}
-          {{ ' and ' }}
-            {%- if BS3_THEME_HOMEPAGE %} <a href="{{ BS3_THEME_HOMEPAGE }}"> {{ BS3_THEME_NAME }}</a>
-            {%- else -%} {{ BS3_THEME_NAME -}}
-            {%- endif -%}
-          {%- endif -%}
+          <span id="engine">
+            Compiled using
+            <a href="http://docs.getpelican.com">Pelican</a>
+          </span>
+          <span id="theme">
+            with theme
+            <a href="http://github.com/yuex/pelican-iliork">iliork</a>
+          </span>
+          <span id="bootstrap">
+            on top of
+            <a href="http://getbootstrap.com/">Bootstrap</a>
+          </span>
         </p>
       </div>
     </div>

@@ -41,10 +41,26 @@ body {
   margin-bottom: 0;
 }
 
-#footer-text {
+#footer #footer-text {
   font-size: 14px;
   float: none;
   margin: 20px 0;
+}
+
+/*
+ *force footer-text within one line,
+ * better display for blank page
+ */
+@media (max-width: 410px) {
+  #footer #footer-text #bootstrap { display: none; }
+}
+
+@media (max-width: 290px) {
+  #footer #footer-text #theme { display: none; }
+}
+
+@media (max-width: 180px) {
+  #footer #footer-text #engine { display: none; }
 }
 
 #navbar {
