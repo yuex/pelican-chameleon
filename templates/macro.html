@@ -131,21 +131,19 @@
   <nav id="footer" class="navbar navbar-default">
     <div class="container">
         <p id="footer-text" class="navbar-text text-center">
-          Powered by
+          Compiled using
           <a href="http://docs.getpelican.com">Pelican</a>
-          and
-          <a href="http://getbootstrap.com/">Bootstrap</a>.
-          Theme <a href="http://github.com/yuex/pelican-iliork">iliork</a>
-          {%- if BS3_THEME_NAME %}
-            built on <a href="http://getbootstrap.com">Bootstrap</a> and
+          with theme
+          <a href="http://github.com/yuex/pelican-iliork">iliork</a>
+          on top of
+          <a href="http://getbootstrap.com/">Bootstrap</a>
+          {%- if BS3_THEME_NAME -%}
+          {{ ' and ' }}
             {%- if BS3_THEME_HOMEPAGE %} <a href="{{ BS3_THEME_HOMEPAGE }}"> {{ BS3_THEME_NAME }}</a>
-            {%- else %} {{ BS3_THEME_NAME }}
+            {%- else -%} {{ BS3_THEME_NAME -}}
             {%- endif -%}
-          {%- endif -%}.
+          {%- endif -%}
         </p>
-        <!--<p id="footer-text" class="navbar-text text-center">-->
-          <!--Copyright © <a href="{{ AUTHORS[AUTHOR] }}">{{ AUTHOR }}</a>-->
-        <!--</p>-->
       </div>
     </div>
   </nav>
