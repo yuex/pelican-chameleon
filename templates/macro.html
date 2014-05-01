@@ -90,7 +90,7 @@
 
       <!--Menuitems, collapable-->
       <div class="collapse navbar-collapse" id="navbar-collapse">
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right" id="menuitem-list">
           {% for title,url in MENUITEMS %}
             {% if url is string %}
               {% if title != 'Search' %}
