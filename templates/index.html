@@ -17,9 +17,9 @@
         {% set year = article.date|strftime('%Y') %}
         {% set month = article.date|strftime('%B') %}
         {% set month_index = article.date|strftime('%m')|int %}
-        <a href="/archives.html#Year{{ year }}">{{ year }}</a>
+        <a href="{{ SITEURL }}/archives.html#Year{{ year }}">{{ year }}</a>
         {{- ' - ' -}}
-        <a href="/archives.html#Year{{ year }}Month{{ month_index }}">{{ month }}</a>
+        <a href="{{ SITEURL }}/archives.html#Year{{ year }}Month{{ month_index }}">{{ month }}</a>
       <a class="accordion-toggle" data-toggle="collapse" 
         {#data-parent="#accordionYear{{ year.grouper }}" #}
         title="toggle folding"
@@ -35,7 +35,7 @@
       </div>
 
       <ul class="list-group">
-        <a href="/{{ article.url }}">
+        <a href="{{ SITEURL }}/{{ article.url }}">
           <li class="list-group-item">
             <h1>
               {{- article.title -}}
@@ -47,7 +47,7 @@
           <li class="list-group-item">
             {% from 'macro.html' import article_info with context %}
             {{ article_info(article) }}
-            <a class="pull-right" href="/{{ article.url }}">
+            <a class="pull-right" href="{{ SITEURL }}/{{ article.url }}">
               </a>
           </li>
           {% if article.summary %}
@@ -57,11 +57,11 @@
           {% endif %}
           <li class="list-group-item text-right">
             <div class="btn-group">
-              <a class="btn btn-primary" href="/{{ article.url }}#disqus_thread" title="comments">
+              <a class="btn btn-primary" href="{{ SITEURL }}/{{ article.url }}#disqus_thread" title="comments">
                 <span class="glyphicon glyphicon-comment"></span></a>
-              <a class="btn btn-primary" href="/{{ article.url }}" title="permanent link">
+              <a class="btn btn-primary" href="{{ SITEURL }}/{{ article.url }}" title="permanent link">
                 <span class="glyphicon glyphicon-link"></span></a>
-              <a class="btn btn-primary" href="/{{ article.url }}" title="read more">
+              <a class="btn btn-primary" href="{{ SITEURL }}/{{ article.url }}" title="read more">
                 <span class="glyphicon glyphicon-plus"></span></a>
             </div>
           </li>

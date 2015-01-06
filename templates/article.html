@@ -40,11 +40,11 @@
       {% endif %}
       <ul class="pager">
         <li class="previous{% if not prev %} disabled{% endif %}">
-        <a {% if prev %}href="/{{ prev.url }}"{% endif %}>
+          <a {% if prev %}href="{{ SITEURL }}/{{ prev.url }}"{% endif %}>
           &laquo; Newer</a>
         </li>
         <li class="next{% if not next %} disabled{% endif %}">
-        <a {% if next %}href="/{{ next.url }}"{% endif %}>
+          <a {% if next %}href="{{ SITEURL }}/{{ next.url }}"{% endif %}>
           Older &raquo;</a>
         </li>
       </ul>

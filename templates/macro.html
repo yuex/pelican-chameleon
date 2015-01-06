@@ -25,7 +25,7 @@
     <ul class="list-group">
       <div class="panel-collapse collapse in" id="{{ id }}collapse">
         {% for article in entry_list %}
-        <a href="/{{ article.url }}">
+        <a href="{{ SITEURL }}/{{ article.url }}">
           <li class="list-group-item">
             {% if show_date %}
               {{- article.date|strftime("%m-%d") -}}
@@ -156,9 +156,9 @@
       {% if articles_page.has_previous() %}
         <li>
           {% if articles_page.previous_page_number() == 1 %}
-            <a href="/{{ page_name }}.html">&laquo;</a>
+            <a href="{{ SITEURL }}/{{ page_name }}.html">&laquo;</a>
           {% else %}
-            <a href="/{{ page_name }}{{ articles_page.previous_page_number() }}.html">&laquo;</a>
+            <a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.previous_page_number() }}.html">&laquo;</a>
           {% endif %}
         </li>
       {% else %}
@@ -170,7 +170,7 @@
       {% for num in articles_paginator.page_range %}
       {% if articles_page.number != num %}
         <li>
-          <a href="/{{page_name}}{% if num != 1 %}{{ num }}{% endif %}.html">
+          <a href="{{ SITEURL }}/{{page_name}}{% if num != 1 %}{{ num }}{% endif %}.html">
             {{- num }}<span class="sr-only">(current)</span></a>
         </li>
       {% else %}
@@ -182,7 +182,7 @@
 
       {% if articles_page.has_next() %}
         <li>
-          <a href="/{{ page_name }}{{ articles_page.next_page_number() }}.html">&raquo;</a>
+          <a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html">&raquo;</a>
         </li>
       {% else %}
         <li class="disabled">
@@ -197,16 +197,16 @@
 {% macro article_info(article) %}
   <span id="article_info">
     <a class="label label-primary" 
-      href="/categories.html#{{ article.category }}">
-      <!--href="/category/{{ article.category }}.html">-->
+      href="{{ SITEURL }}/categories.html#{{ article.category }}">
+      <!--href="{{ SITEURL }}/category/{{ article.category }}.html">-->
       {{- article.category -}}
     </a>
     {% if article.tags %}
       <b> · </b>
       {% for tag in article.tags %}
         <a class="label label-primary" 
-          href="/tags.html#{{ tag }}">
-          <!--href="/tag/{{ tag }}.html">-->
+          href="{{ SITEURL }}/tags.html#{{ tag }}">
+          <!--href="{{ SITEURL }}/tag/{{ tag }}.html">-->
           {{- tag -}}
         </a>
       {% endfor %}
@@ -217,12 +217,12 @@
       {% set year = article.date|strftime('%Y') %}
       {% set month = article.date|strftime('%m') %}
       {% set day = article.date|strftime('%d') %}
-      <a href="/archives.html#Year{{ year }}">{{ year }}</a>
+      <a href="{{ SITEURL }}/archives.html#Year{{ year }}">{{ year }}</a>
       {{- '-' -}}
-      <a href="/archives.html#Year{{ year }}Month{{ month|int }}">{{ month }}</a>
+      <a href="{{ SITEURL }}/archives.html#Year{{ year }}Month{{ month|int }}">{{ month }}</a>
       {{- '-' -}}
-      <a href="/archives.html#Year{{ year }}Month{{ month|int }}">{{ day }}</a>
-      <!--<a href="/archives.html#Year{{ year }}Month{{ month|int }}Day{{ day }}">{{ day }}</a>-->
+      <a href="{{ SITEURL }}/archives.html#Year{{ year }}Month{{ month|int }}">{{ day }}</a>
+      <!--<a href="{{ SITEURL }}/archives.html#Year{{ year }}Month{{ month|int }}Day{{ day }}">{{ day }}</a>-->
 
     {% endif %}
     <!--<span class="glyphicon glyphicon-user"></span>-->
