@@ -14,6 +14,13 @@ You can get a live demo at [iliork][], using [flatly][], mainly in Chinese. For 
 
 # Features
 
+## Overwrite Bootstrap 3
+
+You can overwrite the default url of boostrap css and js by setting following variables. If these variables are not defined, the theme will use the 3.0.0 version of bootstrap.
+
+    BS3_URL = 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'
+    BS3_JS  = 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js'
+
 ## Use Bootstrap Theme
 
 You can change the default appearance of Bootstrap to any Bootstrap theme you like. `BS3_THEME` defines the url of the theme's css file; `BS3_THEME_NAME` and `BS3_THEME_HOMEPAGE` define the name and url of bootstrap theme, which are used in the footer text.
@@ -21,7 +28,6 @@ You can change the default appearance of Bootstrap to any Bootstrap theme you li
 See [Screen Shots][] for demos. For more theme to choose from, have a look at [Bootswatch][].
 
     # using flatly of bootswatch.com
-    BS3_URL = 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'
     BS3_THEME = 'http://bootswatch.com/flatly/bootstrap.min.css'
     BS3_THEME_NAME = 'Flatly'
     BS3_THEME_HOMEPAGE = 'http://bootstrap.com/flatly'
