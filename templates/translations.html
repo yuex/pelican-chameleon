@@ -2,7 +2,7 @@
 {% if article.translations %}
 Translations: 
     {% for translation in article.translations %}
-        <a href="{{ SITEURL }}/{{ translation.url }}">{{ translation.lang }}</a>
+        <a href="{{ genurl( translation.url, force=True ) }}">{{ translation.lang }}</a>
     {% endfor %}
 {% endif %}
 {% endmacro %}

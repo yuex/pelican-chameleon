@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% from 'macro.html' import genurl with context %}
 <html lang="{{ DEFAULT_LANG }}">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -6,7 +7,7 @@
     <meta name="description" content="{{ SITENAME }}">
     <meta name="author" content="{{ AUTHOR }}">
     {% if FAVICON %}
-    <link rel="icon" type="image/{{ FAVICON.split('.')[-1] }}" href="{{ FAVICON }}">
+    <link rel="icon" type="image/{{ FAVICON_TYPE }}" href="{{ genurl( FAVICON ) }}">
     {% endif %}
 
     {% from 'macro.html' import pagetitle with context %}
@@ -14,22 +15,26 @@
 
     <!-- Bootstrap core CSS -->
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-
-    {%- if BS3_THEME -%}
-    <link rel="stylesheet" href="{{ BS3_THEME }}" type="text/css">
+    {%- if BS3_URL -%}
+    <link rel="stylesheet" href="{{ genurl( BS3_URL ) }}">
+    {%- else -%}
+    <link rel="stylesheet" href="{{ genurl( '//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css' ) }}">
     {%- endif -%}
 
-    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/main.css">
+    {%- if BS3_THEME -%}
+    <link rel="stylesheet" href="{{ genurl(BS3_THEME) }}" type="text/css">
+    {%- endif -%}
+
+    <link rel="stylesheet" href="{{ genurl( '/theme/css/main.css' ) }}">
 
     {%- if CODE_HIGHLIGHT -%}
-    <link rel="stylesheet" href="{{ CODE_HIGHLIGHT }}">
+    <link rel="stylesheet" href="{{ genurl( CODE_HIGHLIGHT ) }}">
     {%- else -%}
-    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/code.css">
+    <link rel="stylesheet" href="{{ genurl( '/theme/css/code.css' ) }}">
     {%- endif -%}
 
     {%- if CSS_OVERWRITE -%}
-    <link rel="stylesheet" href="{{ CSS_OVERWRITE }}">
+    <link rel="stylesheet" href="{{ genurl( CSS_OVERWRITE ) }}">
     {%- endif -%}
 
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>

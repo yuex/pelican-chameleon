@@ -21,6 +21,7 @@ You can change the default appearance of Bootstrap to any Bootstrap theme you li
 See [Screen Shots][] for demos. For more theme to choose from, have a look at [Bootswatch][].
 
     # using flatly of bootswatch.com
+    BS3_URL = 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'
     BS3_THEME = 'http://bootswatch.com/flatly/bootstrap.min.css'
     BS3_THEME_NAME = 'Flatly'
     BS3_THEME_HOMEPAGE = 'http://bootstrap.com/flatly'
@@ -70,6 +71,7 @@ Put following in your MENUITEMS to have a Google custom search box on top navbar
 To use your favicon, set following option in `pelicanconf.py`
 
     FAVICON = u'url to your favicon'
+    FAVICON_TYPE = u'png or jpeg or whatever'
 
 ## Multi-author
 You can direct the author link to whichever you want. It's not hard-coded in the theme.

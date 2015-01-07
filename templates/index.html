@@ -4,6 +4,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% from 'macro.html' import genurl with context %}
 {% if articles %}
   {% if articles_page %}
     {% set articles = articles_page.object_list %}
@@ -16,10 +17,10 @@
       <div class="panel-heading panel-title">
         {% set year = article.date|strftime('%Y') %}
         {% set month = article.date|strftime('%B') %}
-        {% set month_index = article.date|strftime('%m')|int %}
-        <a href="{{ SITEURL }}/archives.html#Year{{ year }}">{{ year }}</a>
+        {% set month_index = article.date|strftime('%m') %}
+        <a href="{{ genurl( '/archives.html#Year' + year ) }}">{{ year }}</a>
         {{- ' - ' -}}
-        <a href="{{ SITEURL }}/archives.html#Year{{ year }}Month{{ month_index }}">{{ month }}</a>
+        <a href="{{ genurl( '/archives.html#Year' + year + 'Month' + month_index ) }}">{{ month }}</a>
       <a class="accordion-toggle" data-toggle="collapse" 
         {#data-parent="#accordionYear{{ year.grouper }}" #}
         title="toggle folding"
@@ -35,7 +36,7 @@
       </div>
 
       <ul class="list-group">
-        <a href="{{ SITEURL }}/{{ article.url }}">
+        <a href="{{ genurl( article.url, force=True ) }}">
           <li class="list-group-item">
             <h1>
               {{- article.title -}}
@@ -47,7 +48,7 @@
           <li class="list-group-item">
             {% from 'macro.html' import article_info with context %}
             {{ article_info(article) }}
-            <a class="pull-right" href="{{ SITEURL }}/{{ article.url }}">
+            <a class="pull-right" href="{{ genurl( article.url, force=True ) }}">
               </a>
           </li>
           {% if article.summary %}
@@ -57,11 +58,11 @@
           {% endif %}
           <li class="list-group-item text-right">
             <div class="btn-group">
-              <a class="btn btn-primary" href="{{ SITEURL }}/{{ article.url }}#disqus_thread" title="comments">
+              <a class="btn btn-primary" href="{{ genurl( article.url + '#disqus_thread', force=True ) }}" title="comments">
                 <span class="glyphicon glyphicon-comment"></span></a>
-              <a class="btn btn-primary" href="{{ SITEURL }}/{{ article.url }}" title="permanent link">
+              <a class="btn btn-primary" href="{{ genurl( article.url, force=True ) }}" title="comments">
                 <span class="glyphicon glyphicon-link"></span></a>
-              <a class="btn btn-primary" href="{{ SITEURL }}/{{ article.url }}" title="read more">
+              <a class="btn btn-primary" href="{{ genurl( article.url, force=True ) }}" title="read more">
                 <span class="glyphicon glyphicon-plus"></span></a>
             </div>
           </li>

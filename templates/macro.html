@@ -1,3 +1,14 @@
+{% macro genurl(string, force=False) %}
+{% if (force or 
+        ( string.startswith('/') and not string.startswith('//') )
+      ) %}
+    {% set url = '/'.join([SITEURL.rstrip('/'),string.lstrip('/')]) %}
+    {{- url -}}
+  {% else %}
+    {{- string -}}
+  {% endif %}
+{% endmacro %}
+
 {% macro article_panel_list(parent='', id='', title_left='', title_right='', entry_list=[], show_date=False, title_left_link='') %}
   {% if not title_left_link %}
     {% set title_left_link = "#%s" % id %}
@@ -25,7 +36,7 @@
     <ul class="list-group">
       <div class="panel-collapse collapse in" id="{{ id }}collapse">
         {% for article in entry_list %}
-        <a href="{{ SITEURL }}/{{ article.url }}">
+        <a href="{{ genurl( article.url, force=True ) }}">
           <li class="list-group-item">
             {% if show_date %}
               {{- article.date|strftime("%m-%d") -}}
@@ -73,7 +84,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="{{ SITEURL }}">{{ SITENAME }}</a>
+        <a class="navbar-brand" href="{{ genurl( SITEURL ) }}">{{ SITENAME }}</a>
       </div> <!--navbar-header-->
 
       <!-- Search Box -->
@@ -95,7 +106,7 @@
             {% if url is string %}
               {% if title != 'Search' %}
                 <li {% if url == link %}class="active"{% endif %}>
-                  <a href="{{ url }}">{{ title }}</a>
+                  <a href="{{ genurl( url ) }}">{{ title }}</a>
                 </li>
               {% endif %}
 
@@ -113,7 +124,7 @@
                 <ul class="dropdown-menu" role="menu">
                   {% for title,item_url in url %}
                   <li {% if item_url == link %}class="active"{% endif %}>
-                    <a href="{{ item_url }}">{{ title }}</a>
+                    <a href="{{ genurl( item_url ) }}">{{ title }}</a>
                   </li>
                   {% endfor %}
                 </ul>
@@ -156,9 +167,9 @@
       {% if articles_page.has_previous() %}
         <li>
           {% if articles_page.previous_page_number() == 1 %}
-            <a href="{{ SITEURL }}/{{ page_name }}.html">&laquo;</a>
+            <a href="{{ genurl( page_name + '.html', force=True ) }}">&laquo;</a>
           {% else %}
-            <a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.previous_page_number() }}.html">&laquo;</a>
+            <a href="{{ genurl( page_name + articles_page.previous_page_number()|string + '.html' ) }}">&laquo;</a>
           {% endif %}
         </li>
       {% else %}
@@ -170,7 +181,12 @@
       {% for num in articles_paginator.page_range %}
       {% if articles_page.number != num %}
         <li>
-          <a href="{{ SITEURL }}/{{page_name}}{% if num != 1 %}{{ num }}{% endif %}.html">
+          {% if num == 1 %}
+            {% set page_link = page_name+'.html' %}
+          {% else %}
+            {% set page_link = page_name+num|string+'.html' %}
+          {% endif %}
+          <a href="{{ genurl( page_link, force=True ) }}">
             {{- num }}<span class="sr-only">(current)</span></a>
         </li>
       {% else %}
@@ -182,7 +198,7 @@
 
       {% if articles_page.has_next() %}
         <li>
-          <a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html">&raquo;</a>
+          <a href="{{ genurl( page_name + articles_page.next_page_number()|string + '.html' ) }}">&raquo;</a>
         </li>
       {% else %}
         <li class="disabled">
@@ -197,16 +213,14 @@
 {% macro article_info(article) %}
   <span id="article_info">
     <a class="label label-primary" 
-      href="{{ SITEURL }}/categories.html#{{ article.category }}">
-      <!--href="{{ SITEURL }}/category/{{ article.category }}.html">-->
+      href="{{ genurl( 'categories.html#' + article.category|string ) }}">
       {{- article.category -}}
     </a>
     {% if article.tags %}
       <b> · </b>
       {% for tag in article.tags %}
         <a class="label label-primary" 
-          href="{{ SITEURL }}/tags.html#{{ tag }}">
-          <!--href="{{ SITEURL }}/tag/{{ tag }}.html">-->
+          href="{{ genurl( 'tags.html#' + tag|string ) }}">
           {{- tag -}}
         </a>
       {% endfor %}
@@ -217,12 +231,11 @@
       {% set year = article.date|strftime('%Y') %}
       {% set month = article.date|strftime('%m') %}
       {% set day = article.date|strftime('%d') %}
-      <a href="{{ SITEURL }}/archives.html#Year{{ year }}">{{ year }}</a>
+      <a href="{{ genurl( '/archives.html#Year' + year ) }}">{{ year }}</a>
       {{- '-' -}}
-      <a href="{{ SITEURL }}/archives.html#Year{{ year }}Month{{ month|int }}">{{ month }}</a>
+      <a href="{{ genurl( '/archives.html#Year' + year + 'Month' + month ) }}">{{ month }}</a>
       {{- '-' -}}
-      <a href="{{ SITEURL }}/archives.html#Year{{ year }}Month{{ month|int }}">{{ day }}</a>
-      <!--<a href="{{ SITEURL }}/archives.html#Year{{ year }}Month{{ month|int }}Day{{ day }}">{{ day }}</a>-->
+      <a href="{{ genurl( '/archives.html#Year' + year + 'Month' + month ) }}">{{ day }}</a>
 
     {% endif %}
     <!--<span class="glyphicon glyphicon-user"></span>-->
