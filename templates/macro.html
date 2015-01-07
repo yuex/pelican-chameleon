@@ -247,7 +247,7 @@
         {% set author_url = ["/author/",article.author,".html"]|join %}
       {% endif %}
     {% endif %}
-    <a href="{{ author_url }}">{{ article.author }}</a>
+    <a href="{{ genurl( author_url ) }}">{{ article.author }}</a>
   </span>
 {% endmacro %}
 
