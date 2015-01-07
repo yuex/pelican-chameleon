@@ -37,9 +37,23 @@
     <link rel="stylesheet" href="{{ genurl( CSS_OVERWRITE ) }}">
     {%- endif -%}
 
+    {%- if JQUERY_JS -%}
+    <script src="{{ JQUERY_JS }}"></script>
+    {%- else -%}
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    {%- endif %}
+
+    {%- if JQUERY_MIGRATE_JS -%}
+    <script src="{{ JQUERY_MIGRATE_JS }}"></script>
+    {%- else -%}
     <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    {%- endif %}
+
+    {%- if BS3_JS -%}
+    <script src="{{ BS3_JS }}"></script>
+    {%- else -%}
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    {%- endif -%}
 
 </head>
 
