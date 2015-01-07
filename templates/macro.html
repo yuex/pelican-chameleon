@@ -16,7 +16,7 @@
 
   <div class="panel panel-primary">
     <div class="panel-heading panel-title">
-      <a id="{{ id }}" href="{{ title_left_link }}">
+      <a id="{{ id }}" href="{{ genurl( title_left_link ) }}">
         {{- title_left -}}
       </a>
       {% if title_right %}
@@ -64,7 +64,7 @@
   {% if name and name != '' %}
     <div class="page-header">
       {% if link %}
-        <h1><a href="{{ link }}">{{ name }}</a></h1>
+        <h1><a href="{{ genurl( link ) }}">{{ name }}</a></h1>
       {% else %}
         <h1>{{ name }}</h1>
       {% endif %}
