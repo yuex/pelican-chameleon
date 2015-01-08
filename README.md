@@ -1,16 +1,18 @@
 # Pelican-iliork
 
-Pelican-iliork is a single-column theme for [pelican][], targeting at blog writing. The primary goal of pelican-iliork is to provide simplicity and readability.
+Pelican-iliork is a single-column blog-writing theme based on [Bootstrap][] for [pelican][]. It provides a elegant way to switch among different [Bootswatch][] themes (please see [Screen Shots][] below) like a **chameleon**, a more suitable name, perhaps.
 
-Pelican-iliork is built on [Bootstrap][] version 3.0. Some notable features are:
+Pelican-iliork is built on [Bootstrap][] 3. Some notable features are:
 
-- Support for bootstrap theme, checkout [Screen Shots][] below
-- Support for css overwriting
-- Support for nestable menu items
-- Support for Google custom search
-- Support for multi-author
+- Support bootstrap theme 
+- Support css overwriting
+- Support nestable menu items
+- Support Google custom search
+- Support multiple authors co-blogging
 
-You can get a live demo at [iliork][], using [flatly][], mainly in Chinese. For more demos, see [Screen Shots][] below.
+# Live Demo
+
+Please check out [yuex.in](http://yuex.in), (using [flatly][], mainly in Chinese. To see how it looks when using different bootswatch themes, please refer to [Screen Shots][] below.
 
 # Features
 
@@ -123,4 +125,3 @@ pelican-iliork with [united][]
 [superhero]: http://bootswatch.com/superhero/
 [united]: http://bootswatch.com/united/
 [Screen Shots]: #screen-shots
-
