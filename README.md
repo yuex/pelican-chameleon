@@ -31,10 +31,8 @@ See [Screen Shots][] for demos. For more theme to choose from, have a look at [B
 
     # using flatly of bootswatch.com
     BS3_THEME = 'http://bootswatch.com/flatly/bootstrap.min.css'
-    BS3_THEME_NAME = 'Flatly'
-    BS3_THEME_HOMEPAGE = 'http://bootstrap.com/flatly'
 
-## Use CSS Overwriting
+## CSS Overwriting
 
 You can use your own css file for code highlight. If you do not provide this value, pelican-iliork will the default css file, `code.css`.
 
@@ -65,6 +63,8 @@ Menu items in pelican-iliork is nestable. `MENUITEMS` are rendered as a top navb
             ('Facebook', 'url to your facebook'),
             ]),
         ]
+
+**NOTE**: If you use absolute domain like '/foo/bar/baz', your SITEURL will be inserted at the head to work around the redirection issue under non-root domain hosting like 'http://example.com/~user/'.
 
 ## Google custom search
 
