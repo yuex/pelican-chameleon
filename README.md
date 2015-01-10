@@ -1,8 +1,8 @@
-# Pelican-iliork
+# Pelican-Chameleon
 
-Pelican-iliork is a single-column blog-writing theme based on [Bootstrap][] for [pelican][]. It provides a elegant way to switch among different [Bootswatch][] themes (please see [Screen Shots][] below) like a **chameleon**, a more suitable name, perhaps.
+Pelican-chameleon, originally pelican-iliork, is a single-column blog-writing theme based on [Bootstrap][] for [pelican][]. It provides a elegant way to switch among different [Bootswatch][] themes (please see [Screen Shots][] below) like a **chameleon**.
 
-Pelican-iliork is built on [Bootstrap][] 3. Some notable features are:
+Pelican-chameleon is built on [Bootstrap][] 3. Some notable features are:
 
 - Support bootstrap theme 
 - Support css overwriting
@@ -34,21 +34,21 @@ See [Screen Shots][] for demos. For more theme to choose from, have a look at [B
 
 ## CSS Overwriting
 
-You can use your own css file for code highlight. If you do not provide this value, pelican-iliork will the default css file, `code.css`.
+You can use your own css file for code highlight. If you do not provide this value, pelican-chameleon will the default css file, `code.css`.
 
-Pelican-iliork provides a easy to way to overwrite the css style of pelican-iliork by providing `CODE_HIGHLIGHT` and `CSS_OVERWRITE`. When switching Boostrap themes, you may find these useful.
+pelican-chameleon provides a easy to way to overwrite the css style of pelican-chameleon by providing `CODE_HIGHLIGHT` and `CSS_OVERWRITE`. When switching Boostrap themes, you may find these useful.
 
 For example, if you want to use your preferred code highlight css, set the following option in your `pelicanconf.py`
 
     CODE_HIGHLIGHT = 'url to your favorite code highlight css'
 
-If you want to overwrite the css style of pelican-iliork iteself, use
+If you want to overwrite the css style of pelican-chameleon iteself, use
 
     CSS_OVERWRITE = 'url to your css'
 
 ## Nestable menu items
 
-Menu items in pelican-iliork is nestable. `MENUITEMS` are rendered as a top navbar. Nested menu items are rendered together as a drop-down button on the top navbar. But only 1-level nesting is allowed; it's clumsy, and perhaps wrong, to nest too much items in the menu. Here's a example.
+Menu items in pelican-chameleon is nestable. `MENUITEMS` are rendered as a top navbar. Nested menu items are rendered together as a drop-down button on the top navbar. But only 1-level nesting is allowed; it's clumsy, and perhaps wrong, to nest too much items in the menu. Here's a example.
 
     MENUITEMS = [
         ('Home', '/'),
@@ -92,32 +92,28 @@ You can direct the author link to whichever you want. It's not hard-coded in the
 
 # Screen Shots
 
-pelican-iliork with default boostrap theme
+pelican-chameleon with default boostrap theme
 
 ![default](./screenshot/default.png)
 
-pelican-iliork with [amelia][]
+pelican-chameleon with [amelia][]
 
 ![amelia](./screenshot/amelia.png)
 
-pelican-iliork with [cosmo][]
+pelican-chameleon with [cosmo][]
 
 ![cosmo](./screenshot/cosmo.png)
 
-pelican-iliork with [superhero][]
+pelican-chameleon with [superhero][]
 
 ![superhero](./screenshot/superhero.png)
 
-pelican-iliork with [united][]
+pelican-chameleon with [united][]
 
 ![united](./screenshot/united.png)
 
 [pelican]: https://github.com/getpelican/pelican
-[pelican-elegant]: https://github.com/talha131/pelican-elegant
 [Bootstrap]: http://getbootstrap.com
-[KISS]: http://en.wikipedia.org/wiki/KISS_principle
-[DRY]: http://en.wikipedia.org/wiki/Don%27t_Repeat_Yourself
-[iliork]: http://blog.iliork.com
 [Bootswatch]: http://bootswatch.com
 [flatly]: http://bootswatch.com/flatly/
 [amelia]: http://bootswatch.com/amelia/
