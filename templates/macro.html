@@ -213,14 +213,14 @@
 {% macro article_info(article) %}
   <span id="article_info">
     <a class="label label-primary" 
-      href="{{ genurl( 'categories.html#' + article.category|string ) }}">
+      href="{{ genurl( '/category/' + article.category|string + '.html') }}">
       {{- article.category -}}
     </a>
     {% if article.tags %}
       <b> · </b>
       {% for tag in article.tags %}
         <a class="label label-primary" 
-          href="{{ genurl( 'tags.html#' + tag|string ) }}">
+          href="{{ genurl( '/tag/' + tag|string + '.html' ) }}">
           {{- tag -}}
         </a>
       {% endfor %}
