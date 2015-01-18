@@ -6,6 +6,10 @@ body {
   font-size: 15px;
 }
 
+.footnote {
+  font-size: 14px;
+}
+
 /* Wrapper for page content to push down footer */
 #wrap {
   min-height: 100%;
