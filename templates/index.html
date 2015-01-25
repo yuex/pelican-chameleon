@@ -10,6 +10,19 @@
     {% set articles = articles_page.object_list %}
   {% endif %}
 
+  <!--<script type="text/javascript">-->
+    <!--/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */-->
+    <!--var disqus_shortname = 'yuex'; // required: replace example with your forum shortname-->
+
+    <!--/* * * DON'T EDIT BELOW THIS LINE * * */-->
+    <!--(function () {-->
+    <!--var s = document.createElement('script'); s.async = true;-->
+    <!--s.type = 'text/javascript';-->
+    <!--s.src = '//' + disqus_shortname + '.disqus.com/count.js';-->
+    <!--(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);-->
+    <!--}());-->
+  <!--</script>-->
+
   <div id="home_article_list" class="panel-group" id="accordion">
     {% for article in articles %}
 
@@ -35,8 +48,9 @@
 
       </div>
 
+      {% set article_url = genurl( article.url, force=True ) %}
       <ul class="list-group">
-        <a href="{{ genurl( article.url, force=True ) }}">
+        <a href="{{ article_url }}">
           <li class="list-group-item">
             <h1>
               {{- article.title -}}
@@ -48,7 +62,7 @@
           <li class="list-group-item">
             {% from 'macro.html' import article_info with context %}
             {{ article_info(article) }}
-            <a class="pull-right" href="{{ genurl( article.url, force=True ) }}">
+            <a class="pull-right" href="{{ article_url }}">
               </a>
           </li>
           {% if article.summary %}
@@ -58,11 +72,12 @@
           {% endif %}
           <li class="list-group-item text-right">
             <div class="btn-group">
-              <a class="btn btn-primary" href="{{ genurl( article.url + '#disqus_thread', force=True ) }}" title="comments">
-                <span class="glyphicon glyphicon-comment"></span></a>
-              <a class="btn btn-primary" href="{{ genurl( article.url, force=True ) }}" title="comments">
+              <a class="btn btn-primary" href="{{ article_url + "#disqus_thread" }}" title="comments">
+                <span class="glyphicon glyphicon-comment" data-disqus-identifier="{{ article.slug }}">
+                </span></a>
+              <a class="btn btn-primary" href="{{ article_url }}" title="permanent link">
                 <span class="glyphicon glyphicon-link"></span></a>
-              <a class="btn btn-primary" href="{{ genurl( article.url, force=True ) }}" title="read more">
+              <a class="btn btn-primary" href="{{ article_url }}" title="read more">
                 <span class="glyphicon glyphicon-plus"></span></a>
             </div>
           </li>
@@ -71,7 +86,6 @@
     </div>
     {% endfor %}
   </div>
-
 {% endif %}
 {% endblock content %}
 
