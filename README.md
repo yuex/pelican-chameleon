@@ -34,7 +34,7 @@ See [Screen Shots][] for demos. For more theme to choose from, have a look at [B
 
 ## CSS Overwriting
 
-You can use your own css file for code highlight. If you do not provide this value, pelican-chameleon will the default css file, `code.css`.
+You can use your own css file for code highlight. If you do not provide this value, pelican-chameleon will the default css file, `solarized-light.css`.
 
 pelican-chameleon provides a easy to way to overwrite the css style of pelican-chameleon by providing `CODE_HIGHLIGHT` and `CSS_OVERWRITE`. When switching Boostrap themes, you may find these useful.
 

@@ -1,14 +1,14 @@
 @import url("solarized-light.css");
 /*@import url(http://fonts.googleapis.com/css?family=Inconsolata);*/
 
-/*code,*/
-/*pre {*/
-    /*font-family: 'Inconsolata-g', 'Inconsolata', 'Menlo', 'Monaco', 'Consolas', 'Courier New', monospace;*/
+code,
+pre {
+    font-family: 'Inconsolata-g', 'Inconsolata', 'Menlo', 'Monaco', 'Consolas', 'Courier New', monospace;
     /*font-size: 13px;*/
     /*border: 1px #ccc dotted;*/
     /*background-color: #f9f9f9;*/
     /*color: #586e75;*/
-/*}*/
+}
 
 /*code {*/
   /*padding: 1px 4px;*/
