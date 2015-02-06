@@ -14,7 +14,7 @@ Pelican-chameleon is built on [Bootstrap][] 3. Some notable features are:
 
 Please check out
 
-* [YueX.in](http://yuex.in), using [flatly][], mainly in Chinese.
+* [YueX.in](http://yuex.in), using [Bootswatch][] [Flatly][], in Chinese.
 * [Screen Shots][], chameleon with different bootswatch theme
 
 # Congfiguration
@@ -32,7 +32,7 @@ You can change the default appearance of Bootstrap to any Bootstrap theme you li
 
 See [Screen Shots][] for demos. For more theme to choose from, have a look at [Bootswatch][].
 
-    # using flatly of bootswatch.com
+    # using Bootswatch Flatly
     BS3_THEME = 'http://bootswatch.com/flatly/bootstrap.min.css'
 
 ## Theme CSS Overwriting
@@ -99,28 +99,28 @@ pelican-chameleon with default boostrap theme
 
 ![default](./screenshot/default.png)
 
-pelican-chameleon with [amelia][]
+pelican-chameleon with [Amelia][]
 
 ![amelia](./screenshot/amelia.png)
 
-pelican-chameleon with [cosmo][]
+pelican-chameleon with [Cosmo][]
 
 ![cosmo](./screenshot/cosmo.png)
 
-pelican-chameleon with [superhero][]
+pelican-chameleon with [Superhero][]
 
 ![superhero](./screenshot/superhero.png)
 
-pelican-chameleon with [united][]
+pelican-chameleon with [United][]
 
 ![united](./screenshot/united.png)
 
 [pelican]: https://github.com/getpelican/pelican
 [Bootstrap]: http://getbootstrap.com
 [Bootswatch]: http://bootswatch.com
-[flatly]: http://bootswatch.com/flatly/
-[amelia]: http://bootswatch.com/amelia/
-[cosmo]: http://bootswatch.com/cosmo/
-[superhero]: http://bootswatch.com/superhero/
-[united]: http://bootswatch.com/united/
+[Flatly]: http://bootswatch.com/flatly/
+[Amelia]: http://bootswatch.com/amelia/
+[Cosmo]: http://bootswatch.com/cosmo/
+[Superhero]: http://bootswatch.com/superhero/
+[United]: http://bootswatch.com/united/
 [Screen Shots]: #screen-shots
