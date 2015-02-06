@@ -4,19 +4,22 @@ Pelican-chameleon, originally pelican-iliork, is a single-column blog-writing th
 
 Pelican-chameleon is built on [Bootstrap][] 3. Some notable features are:
 
-- Support bootstrap theme 
-- Support css overwriting
-- Support nestable menu items
-- Support Google custom search
-- Support multiple authors co-blogging
+- [Bootswatch][] theme support
+- The css of this theme can be overwritten very easily
+- Nestable menu items
+- Google custom search support
+- Multiple authors co-blogging
 
-# Live Demo
+# Demo
 
-Please check out [yuex.in](http://yuex.in), (using [flatly][], mainly in Chinese. To see how it looks when using different bootswatch themes, please refer to [Screen Shots][] below.
+Please check out
 
-# Features
+* **[http://yuex.in]()**, using [flatly][], mainly in Chinese.
+* **[Screen Shots][]**, chameleon with different bootswatch theme
 
-## Overwrite Bootstrap 3
+# Congfiguration
+
+## Bootstrap 3 Version and URL Overwriting
 
 You can overwrite the default url of boostrap css and js by setting following variables. If these variables are not defined, the theme will use the 3.0.0 version of bootstrap.
 
@@ -32,7 +35,7 @@ See [Screen Shots][] for demos. For more theme to choose from, have a look at [B
     # using flatly of bootswatch.com
     BS3_THEME = 'http://bootswatch.com/flatly/bootstrap.min.css'
 
-## CSS Overwriting
+## Theme CSS Overwriting
 
 You can use your own css file for code highlight. If you do not provide this value, pelican-chameleon will the default css file, `solarized-light.css`.
 
@@ -46,7 +49,7 @@ If you want to overwrite the css style of pelican-chameleon iteself, use
 
     CSS_OVERWRITE = 'url to your css'
 
-## Nestable menu items
+## Nestable Menu Items
 
 Menu items in pelican-chameleon is nestable. `MENUITEMS` are rendered as a top navbar. Nested menu items are rendered together as a drop-down button on the top navbar. But only 1-level nesting is allowed; it's clumsy, and perhaps wrong, to nest too much items in the menu. Here's a example.
 
@@ -66,7 +69,7 @@ Menu items in pelican-chameleon is nestable. `MENUITEMS` are rendered as a top n
 
 **NOTE**: If you use absolute domain like '/foo/bar/baz', your SITEURL will be inserted at the head to work around the redirection issue under non-root domain hosting like 'http://example.com/~user/'.
 
-## Google custom search
+## Google Custom Search
 
 Put following in your MENUITEMS to have a Google custom search box on top navbar. 'Search' is the key, mandatory.
 
@@ -81,7 +84,7 @@ To use your favicon, set following option in `pelicanconf.py`
     FAVICON = u'url to your favicon'
     FAVICON_TYPE = u'png or jpeg or whatever'
 
-## Multi-author
+## Multiple Author
 You can direct the author link to whichever you want. It's not hard-coded in the theme.
 
     AUTHORS = {
