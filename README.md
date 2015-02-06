@@ -14,7 +14,7 @@ Pelican-chameleon is built on [Bootstrap][] 3. Some notable features are:
 
 Please check out
 
-* [http://yuex.in](), using [flatly][], mainly in Chinese.
+* [YueX.in](http://yuex.in), using [flatly][], mainly in Chinese.
 * [Screen Shots][], chameleon with different bootswatch theme
 
 # Congfiguration
