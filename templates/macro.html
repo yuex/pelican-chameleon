@@ -1,11 +1,17 @@
 {% macro genurl(string, force=False) %}
-{% if (force or 
-        ( string.startswith('/') and not string.startswith('//') )
-      ) %}
+  {% if (force or
+        ( string.startswith('/') and not string.startswith('//') )) %}
     {% set url = '/'.join([SITEURL.rstrip('/'),string.lstrip('/')]) %}
     {{- url -}}
   {% else %}
     {{- string -}}
+  {% endif %}
+{% endmacro %}
+
+{% macro newtab(string, force=False) %}
+  {% if ( string.startswith('http://') or
+          string.startswith('https://')) %}
+    target="_blank"
   {% endif %}
 {% endmacro %}
 
@@ -106,7 +112,7 @@
             {% if url is string %}
               {% if title != 'Search' %}
                 <li {% if url == link %}class="active"{% endif %}>
-                  <a href="{{ genurl( url ) }}">{{ title }}</a>
+                  <a href="{{ genurl( url ) }}" {{ newtab(url) }}>{{ title }}</a>
                 </li>
               {% endif %}
 
@@ -124,7 +130,7 @@
                 <ul class="dropdown-menu" role="menu">
                   {% for title,item_url in url %}
                   <li {% if item_url == link %}class="active"{% endif %}>
-                    <a href="{{ genurl( item_url ) }}">{{ title }}</a>
+                    <a href="{{ genurl( item_url ) }}" {{ newtab(item_url) }}>{{ title }}</a>
                   </li>
                   {% endfor %}
                 </ul>

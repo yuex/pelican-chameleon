@@ -61,13 +61,14 @@ Menu items in pelican-chameleon is nestable. `MENUITEMS` are rendered as a top n
             ('Chronological', '/archives.html'),
             ]),
         ('Social', [
-            ('Email', 'url to your email'),
-            ('Github', 'url to your github'),
-            ('Facebook', 'url to your facebook'),
+            ('Email', 'emailto: maurelinus@stoic.edu'),
+            ('Github', 'http://url-to-github-page'),
+            ('Facebook', 'http://url-to-facebook-page'),
             ]),
         ]
 
-**NOTE**: If you use absolute domain like '/foo/bar/baz', your SITEURL will be inserted at the head to work around the redirection issue under non-root domain hosting like 'http://example.com/~user/'.
+**NOTE**: If you use absolute domain like '/foo/bar/baz', your SITEURL will be inserted at the head to work around the redirection issue when hosting under non-root domain like 'http://stoic.edu/~maurelinus/'.
+**NOTE**: Domains starting with `http://` and `https://`, are generated to `<a>` tag with a `target='_blank'` attribute. For links within your site, use absolute domain like '/foo/bar/baz', they will be converted to the http style. Wish this will help to trap more readers. ;)
 
 ## Google Custom Search
 
