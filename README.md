@@ -61,7 +61,7 @@ Menu items in pelican-chameleon is nestable. `MENUITEMS` are rendered as a top n
             ('Chronological', '/archives.html'),
             ]),
         ('Social', [
-            ('Email', 'emailto: maurelinus@stoic.edu'),
+            ('Email', 'mailto: maurelinus@stoic.edu'),
             ('Github', 'http://url-to-github-page'),
             ('Facebook', 'http://url-to-facebook-page'),
             ]),
