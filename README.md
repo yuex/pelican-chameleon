@@ -2,7 +2,7 @@
 
 Pelican-chameleon, originally pelican-iliork, is a single-column blog-writing
 theme based on [Bootstrap][] for [pelican][]. It provides an elegant way for
-switching among different [Bootswatch][] themes (please see [Screen Shots][]
+switching between different [Bootswatch][] themes (please see [Screen Shots][]
 below) like a **chameleon**.  Pelican-chameleon is built on [Bootstrap][] 3.
 Some notable features are:
 
