@@ -26,7 +26,7 @@
         {{- title_left -}}
       </a>
       {% if title_right %}
-        <a class="accordion-toggle" data-toggle="collapse" 
+        <a class="accordion-toggle" data-toggle="collapse"
           {#data-parent="{{ parent }}accordin"#}
           title="toggle folding"
           href="#{{ id }}collapse">
@@ -97,9 +97,9 @@
       {% for title,url in MENUITEMS %}
         {% if title == 'Search' %}
           <form class="navbar-form navbar-right" role="search"
-            action="http://www.google.com/cse" 
-            id="searchbox_{{ url }}" target="_blank"> 
-              <input type="hidden" name="cx" value="{{ url }}" /> 
+            action="http://www.google.com/cse"
+            id="searchbox_{{ url }}" target="_blank">
+              <input type="hidden" name="cx" value="{{ url }}" />
               <input type="text" name="q" class="form-control" placeholder="Search">
           </form>
         {% endif %}
@@ -218,15 +218,15 @@
 
 {% macro article_info(article) %}
   <span id="article_info">
-    <a class="label label-primary" 
-      href="{{ genurl( '/category/' + article.category|string + '.html') }}">
+    <a class="label label-primary"
+      href="{{ genurl( '/' + article.category.url|string) }}">
       {{- article.category -}}
     </a>
     {% if article.tags %}
       <b> · </b>
       {% for tag in article.tags %}
-        <a class="label label-primary" 
-          href="{{ genurl( '/tag/' + tag|string + '.html' ) }}">
+        <a class="label label-primary"
+          href="{{ genurl( '/' + tag.url|string) }}">
           {{- tag -}}
         </a>
       {% endfor %}
@@ -259,7 +259,7 @@
 
 {% macro taglist(list,prefix='',suffix='') %}
   {% for tag, articles in list|sort %}
-    <a class="label label-primary" 
+    <a class="label label-primary"
       href="{{prefix}}{{tag}}{{suffix}}">
       {{- tag }} {{ articles|count }}</a>
   {% endfor %}

@@ -1,5 +1,5 @@
 {% set name = ["Tag: ",tag]|join %}
-{% set link = ["tag/",tag,".html"]|join %}
+{% set link = tag.url %}
 {% extends "base.html" %}
 
 {% block content %}
