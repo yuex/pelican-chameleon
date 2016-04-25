@@ -16,7 +16,7 @@
       {% set parent = "accordion" %}
       {% set id = tag %}
       {% set title_left = tag %}
-      {% set title_left_link = "/tag/%s.html" % (tag) %}
+      {% set title_left_link = "/%s" % (tag.url) %}
       {% set title_right = articles|count %}
       {% set entry_list = articles %}
       {{ article_panel_list(

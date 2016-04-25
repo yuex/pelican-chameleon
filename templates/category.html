@@ -1,5 +1,5 @@
 {% set name = ["Category: ",category]|join %}
-{% set link = ["category/",category,".html"]|join %}
+{% set link = category.url %}
 {% extends "base.html" %}
 
 {% block content %}
