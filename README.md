@@ -117,6 +117,15 @@ the theme.
         u'tony': 'http://tony.me',
     }
 
+## Final Warning
+
+If you have articles or pages written in markdown, remember to
+
+    pip install markdown
+
+If you want to use Chinese in `Category` or `Tag`, remember to use `Python3`
+(Thanks to [@niboxy](https://github.com/niboxy)'s advice)
+
 # Screen Shots
 
 pelican-chameleon with default boostrap theme
