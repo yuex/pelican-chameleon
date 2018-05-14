@@ -41,7 +41,7 @@ See [Screen Shots][] for demos. For more theme to choose from, have a look at
 [Bootswatch][].
 
     # using Bootswatch Flatly
-    BS3_THEME = 'http://bootswatch.com/flatly/bootstrap.min.css'
+    BS3_THEME = 'http://bootswatch.com/3/flatly/bootstrap.min.css'
 
 ## Theme CSS Overwriting
 
